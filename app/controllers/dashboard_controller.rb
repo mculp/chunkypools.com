@@ -4,17 +4,12 @@ class DashboardController < ApplicationController
   def show
     login_from_php
 
-    # TODO: remove this
-    if Rails.env.development? && request.cookies['PHPSESSID']
-      `ln -s sess_0ve3kufh8983u1s2jmck6om4 sess_#{request.cookies['PHPSESSID']}`
-    end
-
-    if cached_response = Rails.cache.read("api/pool_info")
+    if cached_response = Rails.cache.read("api/pool/status")
       @pool_info = cached_response
     else
-      body = Typhoeus.get("http://www.chunkypools.com/api/pool_info", nosignal: true).response_body
+      body = Typhoeus.get("http://www.chunkypools.com/api/pool/status", nosignal: true).response_body
       @pool_info = Hashie::Mash.new(JSON.parse(body))
-      Rails.cache.write("api/pool_info", @pool_info)
+      Rails.cache.write("api/pool/status", @pool_info)
     end
 
     @multiport_coin = @pool_info.multiport_coin
