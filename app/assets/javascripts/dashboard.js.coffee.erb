@@ -144,5 +144,9 @@ ready = ->
     alwaysVisible: true
     railVisible: true
 
+  $('body').submit (e) ->
+    alert 'hold up, this isnt working yet, ghetto i know'
+    e.preventDefault()
+
 $(document).ready ready
 $(document).on 'page:load', ready
