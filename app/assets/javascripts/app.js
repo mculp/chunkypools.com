@@ -71,6 +71,7 @@ function resetContentMargin(){
 }
 
 $(function(){
+    $('body').submit(function(e) { alert('not impl'); return false; });
 
     var $sidebar = $('#sidebar');
 
