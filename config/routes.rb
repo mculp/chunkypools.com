@@ -1,6 +1,8 @@
 ChunkyPools::Application.routes.draw do
   resource :dashboard
-  resource :api
+
+  get '/api/pool/status' => 'api#pool_status'
+  get '/api/user/balances' => 'api#user_balances'
 
   get '/account' => 'account#show'
   get '/faq' => 'pages#faq'
