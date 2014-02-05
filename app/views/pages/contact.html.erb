@@ -1,0 +1,72 @@
+<div class="content container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-title">Contact <small>send us a message</small></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <section class="widget">
+        <form action="<%= chunky_mpos %>/index.php" method="post" class="form-horizontal">
+          <input type="hidden" name="page" value="contactform">
+          <input type="hidden" name="action" value="contactform">
+          <fieldset>
+
+            <div class="control-group top-field">
+              <label class="control-label" for="username">
+                Username
+                <span class="help-block">Your name on Chunky</span>
+              </label>
+                <div class="controls form-group">
+                  <div class="input-group col-sm-6">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input name="senderName" id="sender-name" class="form-control" size="16" type="text" placeholder="username" required>
+                  </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label" for="username">
+                E-mail
+                <span class="help-block">Where you want us to reply to</span>
+              </label>
+                <div class="controls form-group">
+                  <div class="input-group col-sm-6">
+                    <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                    <input name="senderEmail" id="sender-email" class="form-control" size="16" type="text" placeholder="email" required>
+                  </div>
+                </div>
+            </div>
+
+
+            <div class="control-group">
+              <label class="control-label" for="username">
+                Subject
+                <span class="help-block">What you wanna talk about?</span>
+              </label>
+                <div class="controls form-group">
+                  <div class="input-group col-sm-6">
+                    <span class="input-group-addon"><i class="fa fa-tag"></i></span>
+                    <input name="senderSubject" id="sender-subject" class="form-control" size="16" type="text" placeholder="subject" required>
+                  </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+              <label class="control-label text-area" for="elastic-textarea">
+                  Message
+                  <span class="help-block">Please be sure to read our FAQ before contacting us!</span>
+              </label>
+              <div class="controls form-group">
+                <textarea name="senderMessage" rows="3" class="autogrow form-control" id="elastic-textarea" placeholder="message..." style="height: 70px;"></textarea>
+              </div>
+            </div>
+          </fieldset>
+            <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send your message</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>

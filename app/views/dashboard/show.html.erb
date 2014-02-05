@@ -1,0 +1,24 @@
+<div class="content container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-title">Dashboard <small>Statistics and more</small></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= render 'graph' %>
+      <%= render 'sparklines' %>
+    </div>
+    <div class="col-md-4">
+      <%= render 'coin_boxes' %>
+      <%= render 'pools' %>
+    </div>
+  </div>
+</div>
+
+<script>
+window.pool_info = <%= @pool_info.to_json.html_safe %>;
+window.results = <%= @results.to_json.html_safe %>;
+window.sparklines = <%= @sparklines.to_json.html_safe %>;
+window.sparkline_order = <%= @sparkline_order.to_json.html_safe %>;
+</script>

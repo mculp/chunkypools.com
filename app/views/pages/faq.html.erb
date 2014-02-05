@@ -1,0 +1,94 @@
+<div class="content container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-title">FAQ <small>frequently asked questions</small></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <section class="widget">
+      <div>
+        <p><strong>What is your story?</strong></p>
+        <p>Look, here's our story. I'm a miner first, pool operator second (although this is quickly changing -- I'm starting to love being a pool op too) and I was frustrated with the current state of pools. Every single pool I tried until I launched my own would have a lot of downtime, the support was nonexistent, etc. So I decided to make my own, and since I have -- and I'm not saying this because I'm biased (I obviously am biased!) -- but it has objectively been a much more stable mining experience. I believe my miners have only fallen to the backup pool for a total of about 10 minutes the entire month of January. I usually respond to support requests within a few minutes. We have SSL for your security, we implement a lot of feature requests, and we have a great community on IRC which is averaging about 70 people at all hours of the day. We have customized MPOS, both its front-end and backend. We have a profit-switching multiport that we are currently beta-testing and tweaking, and we're working on a lot of upcoming features. And we don't even charge a mining fee!</p>
+        <p style="text-align: right"><strong>-- matt / mculp / zergbeef</strong></p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>I have been mining for <strong>N</strong> hours and I still have 0 coins?</strong><p>
+        <p>No, you probably haven&#39;t done anything wrong. We just haven't found a block since you started mining. Sometimes, it takes a while to find a block. You get a portion of the coins found in each block. Some blocks take minutes, some take hours. The current average time to find a block is around 4 hours. Our pool currently has 300 MH/s, so the blocks here take longer to find than, for example Dogehouse, but our blocks are split between a lot less people. So instead of getting a block every ten minutes where you get 1 coin out of it, you get a block every 4 hours with lots of coins in it. Over time, they pay out equivalently.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Why is this block taking so long?</strong></p>
+        <p>You can't predict when a block will be solved. It could be almost immediate, or it could take 10 times longer than the average estimated time for a block. This happens in all pools. We had two blocks solved this morning within 6 minutes of each other, with our estimate for a block around 2 hours. This weekend, we solved 16 blocks in 24 hours. It evens out over time.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Doesn't it make more sense to join a pool with a higher hash rate?</strong></p>
+        <p>Maybe. If you are worried about what you make in the short term, then yes, pools with a higher hash rate will pay you lower, more consistent rewards. Pools with a lower hash rate pay out higher rewards to less people. You can get lucky in the short term and make more than the higher hash rate pool, or you can get unlucky and make less. This also evens out over time. The payout from two pools with a large gap in hash rate over 48-72 hours or so will be almost identical.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Why did I only get <strong>N</strong> coins from that block?</strong></p>
+        <p>DOGE block rewards are random, currently between 0 and 1 million DOGE per block. Sometimes they will be very small, other times very large, and other times right around what you expect. Again, this evens out over time for an average of 500,000 per block.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Can you reset my PIN?</strong></p>
+        <p>You can reset it through the <a href="<%= chunky_mpos %>/index.php?page=password">password reset page</a> now.<p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Why is the dashboard showing a different hashrate than cgminer?</strong></p>
+        <p>The dashboard uses your submitted shares to try to come up with an <strong>ESTIMATED HASHRATE</strong>. It is woefully inaccurate at times, and sometimes we may even make it more inaccurate on purpose because it's a hell of a load on the database.<p>
+        <p>The bottom line is that: the dashboard only shows an estimate, which is not used in any way for the calculation of your payout. If you want to know your real hash rate, look at cgminer.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>What mining program should I use?</strong></p>
+        <p>For nvidia cards use <a href="https://bitcointalk.org/index.php?topic=167229.0" target="_blank">cudaminer</a></p>
+        <p>For AMD/ATI cards use <a href="https://bitcointalk.org/index.php?topic=28402.0" target="_blank">cgminer</a> (version 3.7.2 or earlier) or one of its forks like <a href="http://www.reddit.com/r/litecoinmining/comments/1va8g2/ann_sgminer_400_release/" target="_blank">sgminer</a>.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>What do the "A," "R," and "HW" mean in cgminer?</strong></p>
+        <p>The "A" stands for accepted shares (adjusted for difficulty).  You want to see this value increase over time (it means you're actually doing work).</p>
+        <p>The "R" stands for rejected shares.  If you have a lot of rejected shares you might want to try lowering your intensity setting or overclock.  ~2% or less is normal.</p>
+        <p>The "HW" stands for hardware errors.  These are bad.  Try reducing your intensity setting or overclock.  Ideally this number will be 0.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Does your pool have a fee/what is the pool fee?</strong></p>
+        <p>This pool will never have a fee.  We do accept donations though, which can be configured through your account settings page.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>What is VARDIFF?</strong></p>
+        <p>Our pool adjusts the difficulty of work it sends based on the speed of your mining rig.  It cuts down on server load by reducing requests and also prevents slower rigs from having someone submit the share they were working on before they complete it.</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>When will I be paid</strong></p>
+        <p>Once the pool you're mining finds a block it will be added to your "unconfirmed" balance.  After it's been confirmed that it isn't an orphan block (the amount of confirmations required varies per pool) it will be credited to your "confirmed balance."</p>
+
+      <div class="faq-entry">
+        <p><strong>What kind of payout does the pool use?</strong></p>
+        <p>At present all pools use PPLNS (Pay Per Last "N" Shares) with the exception of KDC, LEAF, and POT which are PPS (proportional).</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Do I need a wallet for every coin?</strong></p>
+        <p>Not necessarily.  Many people pay directly from Chunky Pools to their exchange wallets for conversion to other cryptocurrency (which they then store in their local wallet).  Be careful doing this though, many exchanges have wallet addresses that change as a security feature.  Always confirm the address before paying out, and if you have auto-payout set - make sure it goes to a wallet address that never changes (preferably your own local wallet).</p>
+      </div>
+
+      <div class="faq-entry">
+        <p><strong>Where can I go for more help and additional resources?</strong></p>
+        <p><a href="http://zx896.ru/publ/bitcoin/faq_cgminer_for_litecoin/12-1-0-43" target="_blank">This guide</a> may help you learn to tune cgminer for your card.  Keep in mind that every card is different and require varying amounts of tinkering to get maximum performance.</p>
+        <p>The <a href="https://bitcointalk.org/index.php?board=67.0" target="_blank">alternate cryptocurrency</a> subforum @ bitcointalk.org is the best place to stay up-to-date on all things altcoins.</p>
+        <p><a href="http://blog.sheasilverman.com/2013/12/friday-post-bitcoin-litecoin-dogecoin-oh-my-a-tutorial-on-how-to-use-dogecoin/" target="_blank">Here</a> is a great general information "getting started" blog post that may help connect it all together.</p>
+        <p>And you can always join us in <a href="webchat.freenode.net/?channels=chunky" target=_blank>Chunky IRC Chat</a> to ask questions, get assistance, or to simply hang out!</p>
+      </div>
+      </section>
+    </div>
+  </div>
+</div>

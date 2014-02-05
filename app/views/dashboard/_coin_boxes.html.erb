@@ -1,0 +1,21 @@
+<section>
+  <div class="box" style="width: 150px; float: left; margin-right: 25px;">
+    <h4><i class="eicon-network"></i>Multiport Coin</h4>
+    <div class="icon">
+      <%= coin_link(@multiport_coin.downcase) do %>
+        <%= coin_image(@multiport_coin, width: 90) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="box" style="width: 150px; float: left">
+    <h4><i class="eicon-alert"></i>Newest Coin</h4>
+    <div class="icon">
+      <%= coin_link('pot') do %>
+        <%= coin_image('pot', width: 90) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="clear" style="clear: both"></div>
+</section>

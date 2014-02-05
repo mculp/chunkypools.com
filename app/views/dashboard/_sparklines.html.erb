@@ -1,0 +1,33 @@
+<section class="widget">
+  <header>
+    <h4><i class="fa fa-shopping-cart"></i> Pools <small> current stats </small></h4>
+  </header>
+  <div class="body">
+    <table class="table table-striped no-margin sources-table">
+      <thead>
+      <tr>
+        <th class="source-col-header">Pool</th>
+        <th>Hashrate</th>
+        <th>Workers</th>
+        <th class="hidden-xs">Difficulty</th>
+        <th class="hidden-xs">Last Block</th>
+        <th class="chart-col-header hidden-xs">Trend</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @pools_table.each.with_index do |pool, i| %>
+          <tr>
+            <td><span class="label label-<%= label_for(pool.coin) %>"><%= pool.coin %></span></td>
+            <td><%= pool.hash_rate %></td>
+            <td><strong class="color-green"><%= pool.number_of_workers %></strong></td>
+            <td class="hidden-xs"><%= "%.2f" % pool.difficulty %></td>
+            <td class="hidden-xs"><%= "%sh %sm " % pool.time_since_last_block %></td>
+            <td class="chart-cell hidden-xs">
+              <div class="sparkline" id="direct-trend" data-index="<%= i %>"></div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

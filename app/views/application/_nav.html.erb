@@ -1,0 +1,30 @@
+<div class="logo">
+  <h4>
+    <%= link_to '/' do %>
+      <%= image_tag 'logo.png', width: 60 %> Chunky <strong>Pools</strong>
+    <% end %>
+  </h4>
+</div>
+<nav id="sidebar" class="sidebar nav-collapse collapse">
+  <ul id="side-nav" class="side-nav">
+    <li class="active"><a href="/"><i class="fa fa-dashboard"></i> <span class="name">Dashboard</span></a></li>
+
+    <% if @logged_in %>
+      <li class="panel"><a href="/account"><i class="fa fa-cog"></i> Account</a></li>
+    <% end %>
+
+    <li>&nbsp;</li>
+
+    <% if @logged_in %>
+      <li class="panel"><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+    <% else %>
+      <li class="panel"><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
+      <li class="panel"><a href="/register"><i class="fa fa-pencil"></i> Sign Up</a></li>
+    <% end %>
+
+    <li>&nbsp;</li>
+
+    <li><a href="/faq"><i class="fa fa-question"></i> <span class="name">Help / FAQ</span></a></li>
+    <li><a href="/contact"><i class="fa fa-inbox"></i> Contact</a></li>
+  </ul>
+</nav>

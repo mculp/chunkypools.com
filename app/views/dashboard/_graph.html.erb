@@ -1,0 +1,34 @@
+<section class="widget">
+  <header>
+    <h4>
+      <i class="fa fa-group"></i> Hashrate <small>Past 24 hours</small>
+    </h4>
+  </header>
+  <div class="body no-margin">
+    <div id="visits-chart" class="chart visits-chart">
+      <svg></svg>
+    </div>
+    <div class="visits-info well well-sm">
+      <div class="row">
+        <div class="col-sm-3 col-xs-6">
+            <div class="key"><i class="eicon-users"></i> Pool Hashrate</div>
+            <div class="value"><%= @hash_rate %> MH/s <i class="fa <%= arrows[0] %>"></i></div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <div class="key"><i class="eicon-user"></i> Fastest Pool</div>
+            <div class="value"><%= fastest_pool %> MH/s <i class="fa <%= arrows[1] %>"></i></div>
+            <div class="subvalue label label-<%= label_for(@pool_info.best_hash_rate) %>"><%= @pool_info.best_hash_rate %></div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <div class="key"><i class="fa fa-plus-square"></i> Pool Workers</div>
+            <div class="value"><%= @pool_info.workers %> <i class="fa <%= arrows[2] %>"></i></div>
+        </div>
+        <div class="col-sm-3 col-xs-6">
+            <div class="key"><i class="fa fa-user"></i> Most Popular Pool</div>
+            <div class="value"><%= most_popular_pool %> <i class="fa <%= arrows[3] %>"></i></div>
+            <div class="subvalue label label-<%= label_for(@pool_info.most_workers) %>"><%= @pool_info.most_workers %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.mycompanyname.mydepartment.mytaskname</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/matt/.rbenv/versions/1.9.3-p392/bin/ruby</string>
+        <string>/Users/matt/dev/chunky-pool/bin/archive.rb</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>900</integer>
+</dict>
+</plist>

@@ -1,0 +1,104 @@
+<div class="content container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-title">Register <small>create your account</small></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <section class="widget">
+        <div class="body">
+          <form action="<%= chunky_mpos %>/index.php" id="user-form" class="form-horizontal label-left" novalidate="novalidate" method="post">
+            <input type="hidden" name="page" value="/">
+            <input type="hidden" name="action" value="register">
+
+            <fieldset>
+                <div class="control-group top-field">
+                  <label class="control-label" for="username">
+                    Username
+                    <span class="help-block">Your name on Chunky</span>
+                  </label>
+                    <div class="controls form-group">
+                      <div class="input-group col-sm-6">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input name="username" id="username" class="form-control" size="16" type="text" placeholder="Username" required>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="password-field">
+                    Password
+                    <span class="help-block">Don't recycle passwords!</span>
+                  </label>
+                    <div class="controls form-group">
+                        <div class="input-group col-sm-6">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input name="password1" type="password" class="form-control" id="password-field-1" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="password-field">
+                    Password repeat
+                    <span class="help-block">Only you can prevent typos!</span>
+                  </label>
+                    <div class="controls form-group">
+                        <div class="input-group col-sm-6">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input name="password2" type="password" class="form-control" id="password-field-2" placeholder="Password repeat" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="normal-field">
+                    Email
+                    <span class="help-block">Use your real e-mail here</span>
+                  </label>
+                    <div class="controls form-group">
+                        <div class="input-group col-sm-8">
+                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                          <input type="text" id="email1" name="email1" class="form-control" placeholder="Email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="normal-field">
+                    Email repeat
+                    <span class="help-block">Down with typos!</span>
+                  </label>
+                    <div class="controls form-group">
+                        <div class="input-group col-sm-8">
+                          <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                          <input type="text" id="email2" name="email2" class="form-control" placeholder="Email repeat" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="password-field">
+                    PIN
+                    <span class="help-block">Keep this PIN safe</span>
+                  </label>
+                    <div class="controls form-group">
+                        <div class="input-group col-sm-3">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" class="form-control" rel="tooltip" name="pin" size="4" maxlength="4" id="pin-field" placeholder="PIN" data-placement="top" data-original-title="Choose a 4 digit PIN that you will not forget." required>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Register new account</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+

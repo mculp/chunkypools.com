@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chunky Pools | Home</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= favicon_link_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta charset="utf-8">
+  <%= csrf_meta_tags %>
+  <%= render 'tags' %>
+</head>
+<body>
+  <%= render 'nav' %>
+
+  <div class="wrap">
+    <%= render 'header' %>
+
+    <%= yield %>
+  </div>
+
+  <%= render 'footer' %>
+</body>
+</html>

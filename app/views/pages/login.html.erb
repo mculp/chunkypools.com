@@ -1,0 +1,48 @@
+<div class="content container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-title">Login <small>access your account</small></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <section class="widget login-widget">
+        <div class="body">
+          <form action="<%= chunky_mpos %>/index.php?page=login" method="post" id="full-login-form" class="no-margin">
+            <input type="hidden" name="to" value="/" />
+            <fieldset>
+              <div class="form-group">
+                <label for="username" >Your E-mail</label>
+
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </span>
+                  <input id="username" type="username" name="username" class="form-control input-lg" placeholder="e-mail" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password" >Your Password</label>
+
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                  <input name="password" id="password" type="password" class="form-control input-lg" placeholder="password" required>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-block btn-lg btn-danger">
+                <span class="small-circle"><i class="fa fa-caret-right"></i></span>
+                <small>Sign In</small>
+              </button>
+              <div class="forgot"><a class="forgot" href="{$smarty.server.PHP_SELF}?page=password">Forgot your Password?</a></div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
