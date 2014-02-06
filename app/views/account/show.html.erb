@@ -25,7 +25,10 @@
             <tbody>
               <% @balances.each do |balance| %>
                 <tr>
-                  <td><%= coin_image balance[:coin] %></td>
+                  <td>
+                    <p><%= coin_image balance[:coin] %></p>
+                    <p class="label label-<%= label_for(pool.coin) %> coin-label"><%= pool.coin %></p>
+                  </td>
                   <td><%= "%.8f" % balance[:confirmed] %></td>
                   <td><%= "%.8f" % balance[:unconfirmed] %></td>
                 </tr>

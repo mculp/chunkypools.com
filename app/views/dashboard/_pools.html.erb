@@ -5,11 +5,11 @@
   <div class="body">
     <ul class="news-list">
       <% @pool_info.pools.each.with_index do |pool, i| %>
-        <li>
+        <li data-link="<%= chunky_url + pool.coin.downcase %>">
         <%= coin_image(pool.coin, alt: '', class: 'pull-left img-circle') %>
           <div class="news-item-info">
             <div class="name"><a href="#"><%= coin_full_name(pool.coin).capitalize %></a></div>
-            <div class="position">pool.chunky.ms:<%= 3333 + i %></div>
+            <div class="position">pool.chunky.ms:<%= pool.coin == 'POT' ? 4200 : 3333 + i %></div>
             <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
           </div>
         </li>

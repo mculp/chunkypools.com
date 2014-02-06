@@ -144,5 +144,8 @@ ready = ->
     alwaysVisible: true
     railVisible: true
 
+  $('.news-list > li').click ->
+    window.location = $(this).data 'link'
+
 $(document).ready ready
 $(document).on 'page:load', ready
