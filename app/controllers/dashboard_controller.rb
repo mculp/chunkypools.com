@@ -21,7 +21,7 @@ class DashboardController < ApplicationController
     else
       host = Rails.env.development? ? "localhost" : "ec2-23-21-221-6.compute-1.amazonaws.com"
       connection = r.connect(host: host, port: 28015)
-      @raw_results = r.db('chunky').table('historical').limit(96).order_by(r.desc('created_at')).run(connection)
+      @raw_results = r.db('chunky').table('historical').order_by('index' => r.desc('created_at')).limit(96).run(connection).to_a
       Rails.cache.write("chunky.historical.96.created_at.desc", @raw_results)
     end
 
