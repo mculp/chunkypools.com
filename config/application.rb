@@ -20,5 +20,7 @@ module ChunkyPools
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.cache_store = :dalli_store, { expires_in: 5.minutes }
+
+    config.middleware.use Rack::PHPSession
   end
 end
