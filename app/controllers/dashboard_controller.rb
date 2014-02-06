@@ -16,9 +16,14 @@ class DashboardController < ApplicationController
     @multiport_workers = @pool_info.multiport_workers
     @hash_rate = @pool_info.hash_rate
 
-    host = Rails.env.development? ? "localhost" : "ec2-23-21-221-6.compute-1.amazonaws.com"
-    r.connect(host: host, port: 28015).repl
-    @raw_results = r.db('chunky').table('historical').limit(96).order_by(r.desc('created_at')).run
+    if cached_results = Rails.cache.read("chunky.historical.96.created_at.desc")
+      @raw_results = cached_results
+    else
+      host = Rails.env.development? ? "localhost" : "ec2-23-21-221-6.compute-1.amazonaws.com"
+      r.connect(host: host, port: 28015).repl
+      @raw_results = r.db('chunky').table('historical').limit(96).order_by(r.desc('created_at')).run
+      Rails.cache.write("chunky.historical.96.created_at.desc")
+    end
 
     results = @raw_results.reverse.map.with_index do |result, i|
       [{ x: result['created_at'].to_i * 1000, y: result['hash_rate'] }, { x: result['created_at'].to_i * 1000, y: result['workers'] }]
