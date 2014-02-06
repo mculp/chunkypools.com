@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   helper_method :chunky_url, :chunky_mpos
 
   def login_from_php(options = {})
-    if @logged_in = env['php.session'] && env['php.session']['AUTHENTICATED']
-      @current_user = env['php.session']['USERDATA']['username']
-      @current_user_id = env['php.session']['USERDATA']['id']
+    if @logged_in = request.env['php.session'] && request.env['php.session']['AUTHENTICATED']
+      @current_user = request.env['php.session']['USERDATA']['username']
+      @current_user_id = request.env['php.session']['USERDATA']['id']
     end
 
     if options[:redirect] && !@logged_in
