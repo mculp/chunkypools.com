@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
       host = Rails.env.development? ? "localhost" : "ec2-23-21-221-6.compute-1.amazonaws.com"
       r.connect(host: host, port: 28015).repl
       @raw_results = r.db('chunky').table('historical').limit(96).order_by(r.desc('created_at')).run
-      Rails.cache.write("chunky.historical.96.created_at.desc")
+      Rails.cache.write("chunky.historical.96.created_at.desc", @raw_results)
     end
 
     results = @raw_results.reverse.map.with_index do |result, i|
