@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
     if cached_response = Rails.cache.read("api/pool/status")
       @pool_info = cached_response
     else
-      body = Typhoeus.get("http://www.chunkypools.com/api/pool/status", nosignal: true).response_body
+      body = Typhoeus.get('http://pool.chunky.ms/api/pool/status', nosignal: true).response_body
       @pool_info = Hashie::Mash.new(JSON.parse(body))
       Rails.cache.write("api/pool/status", @pool_info)
     end
