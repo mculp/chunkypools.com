@@ -34,7 +34,9 @@ gem 'rethinkdb'
 gem 'hashie'
 gem 'rack-php-session'
 
-gem 'jazz_hands'
+group :development do
+  gem 'jazz_hands'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
