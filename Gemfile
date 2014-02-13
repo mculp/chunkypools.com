@@ -31,6 +31,8 @@ gem 'rethinkdb'
 gem 'hashie'
 gem 'rack-php-session'
 
+gem 'puma'
+
 group :development do
   gem 'jazz_hands'
 end
