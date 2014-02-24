@@ -39,7 +39,9 @@ class DashboardController < ApplicationController
   end
 
   def cached(key)
-    return cached_results if cached_results = Rails.cache.read(key)
+    if cached_results = Rails.cache.read(key)
+      return cached_results
+    end
 
     results = yield
 
