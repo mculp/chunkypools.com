@@ -9,7 +9,7 @@ module ApplicationHelper
     'DGB'  =>  { pill_color: 'primary',  image: 'digibytewhite',   full_name: 'digibyte' },
     'KDC'  =>  { pill_color: 'primary',  image: 'klondikewhite',   full_name: 'klondikecoin' },
     'LTC'  =>  { pill_color: 'default',  image: 'litecoin120',     full_name: 'litecoin' },
-    'LEAF' =>  { pill_color: 'success',  image: 'leafcoin120',     full_name: 'leafcoin' },
+    'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' },
     'POT'  =>  { pill_color: 'success',  image: 'potcoin120',      full_name: 'potcoin' }
   }
 

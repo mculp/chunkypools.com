@@ -4,7 +4,7 @@ class Pool
   API_KEY = "05d16735674051d72ea5f0ce0b60adde14e66544b388bf0b313aef9a2be65314"
 
   COIN_REWARD = {
-   'doge' => 500000,
+   'doge' => 250000,
    'eac' => 11000,
    'rpc' => 1,
    'lot' => 32000,
@@ -13,7 +13,7 @@ class Pool
    'dgb' => 8000,
    'ltc' => 50,
    'kdc' => 77,
-   'leaf' => 500000,
+   'ruby' => 500,
    'pot' => 420
  }
 
