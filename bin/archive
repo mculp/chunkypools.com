@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+
+require_relative "../config/initializers/settings"
+
 require 'rethinkdb'
 require 'open-uri'
 
@@ -7,8 +10,8 @@ module Archive
   extend RethinkDB::Shortcuts
 
   def self.run
-    r.connect(host: "ec2-23-21-221-6.compute-1.amazonaws.com", port: 28015).repl
-    data = JSON.parse(open("http://pool.chunky.ms/api/pool/status").read)
+    r.connect(host: Settings::RETHINK, port: 28015).repl
+    data = JSON.parse(open(Settings::API + Settings::STATUS_PATH).read)
     r.db('chunky').table('historical').insert(data.merge(created_at: Time.now)).run
   end
 end
