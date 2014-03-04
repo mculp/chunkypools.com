@@ -6,6 +6,6 @@ class Coin
     @code = options[:code]
     @reward = options[:reward]
     @port = options[:port]
-    @active = options[:active] || true
+    @active = options.has_key?(:active) ? options[:active] : true
   end
 end
