@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  CHUNKY_URL = 'https://pool.chunky.ms/'
+  CHUNKY_URL = 'https://chunkypools.com'
 
   helper_method :chunky_url, :chunky_mpos
 
@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
   end
 
   def chunky_mpos
-    chunky_url + 'doge'
+    chunky_url + 'pot'
   end
 end
