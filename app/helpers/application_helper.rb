@@ -48,7 +48,7 @@ module ApplicationHelper
   end
 
   def coin_image(coin, options = {})
-    image_tag "#{COINS[coin.upcase][:image]}.png", options
+    image_tag("#{COINS[coin.upcase][:image]}.png", options) rescue nil
   end
 
   def coin_full_name(coin)
