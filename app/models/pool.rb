@@ -3,7 +3,9 @@ require 'open-uri'
 class Pool
   API_KEY = "05d16735674051d72ea5f0ce0b60adde14e66544b388bf0b313aef9a2be65314"
 
-  COINS = {
+  exit RUBY_VERSION
+
+  COINS = [
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
    Coin.new(name: 'Klondikecoin', code: 'kdc', reward: 77, port: 3341),
@@ -19,7 +21,7 @@ class Pool
    Coin.new(name: '42', code: '42', reward: 0.000042, port: 3338, active: false),
    Coin.new(name: 'Litecoin', code: 'ltc', reward: 50, port: 3340, active: false),
    Coin.new(name: 'Leafcoin', code: 'leaf', reward: 500000, port: 3342, active: false)
-  }
+  ]
 
   attr_accessor :coin
 
