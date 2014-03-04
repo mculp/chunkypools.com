@@ -29,10 +29,10 @@ class DashboardController < ApplicationController
 
     @pools_table = @pool_info.pools.sort_by { |p| -p.hash_rate }
 
-    sparkline_source = @raw_results.reverse.values_at(0,10,20,30,40,50,60,70,80,95)
+    sparkline_source = @raw_results.last(10)
 
-    @sparklines = @pools_table.reject { |p| p.coin == "POT" || p.coin == 'RUBY' }.map do |pool|
-      sparkline_source.map { |source| source['pools'].find { |s| s['coin'] == pool.coin }['hash_rate'] }
+    @sparklines = @pools_table.map do |pool|
+      sparkline_source.map { |source| source['pools'].find { |s| s['coin'] == pool.coin }.try(:[], 'hash_rate') }.compact
     end
 
     @sparkline_order = @pools_table.map(&:coin)
