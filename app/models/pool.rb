@@ -19,7 +19,7 @@ class Pool
    Coin.new(name: '42', code: '42', reward: 0.000042, port: 3338, active: false),
    Coin.new(name: 'Litecoin', code: 'ltc', reward: 50, port: 3340, active: false),
    Coin.new(name: 'Leafcoin', code: 'leaf', reward: 500000, port: 3342, active: false)
- }
+  }
 
   attr_accessor :coin
 
