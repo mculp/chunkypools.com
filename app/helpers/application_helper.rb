@@ -10,7 +10,11 @@ module ApplicationHelper
     'KDC'  =>  { pill_color: 'primary',  image: 'klondikewhite',   full_name: 'klondikecoin' },
     'LTC'  =>  { pill_color: 'default',  image: 'litecoin120',     full_name: 'litecoin' },
     'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' },
-    'POT'  =>  { pill_color: 'success',  image: 'potcoin120',      full_name: 'potcoin' }
+    'POT'  =>  { pill_color: 'success',  image: 'potcoin120',      full_name: 'potcoin' },
+    'SUN'  =>  { pill_color: 'warning',  image: 'suncoin120',      full_name: 'suncoin' },
+    'RON'  =>  { pill_color: 'danger',   image: 'ronswansoncoin120',      full_name: 'ronswansoncoin' },
+    'AUR'  =>  { pill_color: 'success',  image: 'auroracoin120',   full_name: 'auroracoin' },
+    'FLAP' =>  { pill_color: 'warning',  image: 'flappycoin120',   full_name: 'flappycoin' }
   }
 
   def fastest_pool
