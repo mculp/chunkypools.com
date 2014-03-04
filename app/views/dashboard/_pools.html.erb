@@ -9,7 +9,7 @@
         <%= coin_image(pool.coin, alt: '', class: 'pull-left img-circle') %>
           <div class="news-item-info">
             <div class="name"><a href="#"><%= coin_full_name(pool.coin).capitalize %></a></div>
-            <div class="position">pool.chunky.ms:<%= Pool::COINS.find { |c| c.code == pool.coin.downcase }.try(:port) %></div>
+            <div class="position">us-east.chunkypools.com:<%= Pool::COINS.find { |c| c.code == pool.coin.downcase }.try(:port) %></div>
             <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
           </div>
         </li>
