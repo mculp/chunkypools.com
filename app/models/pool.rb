@@ -101,7 +101,7 @@ class Pool
 
   private
 
-  def active_coins
+  def self.active_coins
     @active_coins ||= COINS.select(&:active)
   end
 
