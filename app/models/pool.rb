@@ -3,8 +3,6 @@ require 'open-uri'
 class Pool
   API_KEY = "05d16735674051d72ea5f0ce0b60adde14e66544b388bf0b313aef9a2be65314"
 
-  exit RUBY_VERSION
-
   COINS = [
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
