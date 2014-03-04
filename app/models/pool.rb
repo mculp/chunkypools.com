@@ -3,18 +3,22 @@ require 'open-uri'
 class Pool
   API_KEY = "05d16735674051d72ea5f0ce0b60adde14e66544b388bf0b313aef9a2be65314"
 
-  COIN_REWARD = {
-   'doge' => 500000,
-   'eac' => 11000,
-   'rpc' => 1,
-   'lot' => 32000,
-   'sbc' => 25,
-   '42' => 0.000042,
-   'dgb' => 8000,
-   'ltc' => 50,
-   'kdc' => 77,
-   'leaf' => 500000,
-   'pot' => 420
+  COINS = {
+   Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
+   Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
+   Coin.new(name: 'Klondikecoin', code: 'kdc', reward: 77, port: 3341),
+   Coin.new(name: 'Potcoin', code: 'pot', reward: 420, port: 3420),
+   Coin.new(name: 'Flappycoin', code: 'flap', reward: 500000, port: 3343),
+   Coin.new(name: 'RonSwansonCoin', code: 'ron', reward: 0.125, port: 3344),
+   Coin.new(name: 'Suncoin', code: 'sun', reward: 10, port: 3345),
+   Coin.new(name: 'Auroracoin', code: 'aur', reward: 25, port: 3346),
+   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 3333, active: false),
+   Coin.new(name: 'Earthcoin', code: 'eac', reward: 11000, port: 3334, active: false),
+   Coin.new(name: 'Lottocoin', code: 'lot', reward: 32000, port: 3336, active: false),
+   Coin.new(name: 'Stablecoin', code: 'sbc', reward: 25, port: 3337, active: false),
+   Coin.new(name: '42', code: '42', reward: 0.000042, port: 3338, active: false),
+   Coin.new(name: 'Litecoin', code: 'ltc', reward: 50, port: 3340, active: false),
+   Coin.new(name: 'Leafcoin', code: 'leaf', reward: 500000, port: 3342, active: false)
  }
 
   attr_accessor :coin
@@ -65,8 +69,9 @@ class Pool
   end
 
   def self.pool_metastatus
-    pools = COIN_REWARD.keys.map do |coin|
-      new(coin).pool_status.merge(coin: coin.upcase)
+    pools = active_coins.map do |coin|
+      code = coin.code
+      new(code).pool_status.merge(coin: code.upcase)
     end
 
     hash_rate = pools.inject(0) { |sum, n| sum += n[:hash_rate] }
@@ -86,14 +91,19 @@ class Pool
   end
 
   def self.balances(api_key)
-    COIN_REWARD.keys.map do |coin|
-      response = new(coin).balance(api_key)
+    active_coins.map do |coin|
+      code = coin.code
+      response = new(code).balance(api_key)
 
-      { coin: coin, confirmed: response['confirmed'], unconfirmed: response['unconfirmed'] }
+      { coin: code, confirmed: response['confirmed'], unconfirmed: response['unconfirmed'] }
     end
   end
 
   private
+
+  def active_coins
+    @active_coins ||= COINS.select(&:active)
+  end
 
   def self.multiport_coin
     coin_line = File.read('data/multiport_coin.txt')
@@ -117,7 +127,7 @@ class Pool
   end
 
   def url(api_key)
-    "http://pool.chunky.ms/#{coin}/index.php?page=api&api_key=#{api_key}"
+    "https://chunkypools.com/#{coin}/index.php?page=api&api_key=#{api_key}"
   end
 
   def action(action, api_key)
