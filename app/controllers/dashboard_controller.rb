@@ -32,7 +32,10 @@ class DashboardController < ApplicationController
     sparkline_source = @raw_results.last(10)
 
     @sparklines = @pools_table.map do |pool|
-      sparkline_source.map { |source| source['pools'].find { |s| s['coin'] == pool.coin }.try(:[], 'hash_rate') }.compact
+      sparkline_source.map do |source|
+        found_pool = source['pools'].find { |s| s['coin'] == pool.coin }
+        found_pool.try(:[], 'hash_rate')
+      end
     end
 
     @sparkline_order = @pools_table.map(&:coin)
