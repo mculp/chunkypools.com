@@ -5,6 +5,7 @@ class Pool
 
   COINS = [
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
+   Coin.new(name: 'Rubycoin', code: 'ruby', reward: 500, port: 3342),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
    Coin.new(name: 'Klondikecoin', code: 'kdc', reward: 77, port: 3341),
    Coin.new(name: 'Potcoin', code: 'pot', reward: 420, port: 3420),
