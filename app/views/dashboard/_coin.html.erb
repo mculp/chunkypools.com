@@ -4,7 +4,13 @@
     <div class="news-item-info">
       <div class="name"><%= coin_full_name(coin).capitalize %></div>
       <div class="position">us-east.chunkypools.com:<%= port %></div>
-      <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
+
+      <% if port == '6666' %>
+        <div class="time">Workers: <%= pool.number_of_workers %></div>
+        <div class="time">Last block: <%= pool.hash_rate %> MH/s</div>
+      <% else %>
+        <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
+      <% end %>
     </div>
   </li>
 <% end %>

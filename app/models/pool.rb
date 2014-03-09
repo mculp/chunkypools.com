@@ -69,6 +69,10 @@ class Pool
     grab_and_parse :getuserbalance, api_key
   end
 
+  def self.coin(code)
+    COINS.find { |coin| coin.code == code.downcase }
+  end
+
   def self.pool_metastatus
     pools = active_coins.map do |coin|
       code = coin.code

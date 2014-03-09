@@ -61,7 +61,7 @@ module ApplicationHelper
   end
 
   def coin_port(coin)
-    COINS[coin.upcase][:port]
+    Pool.coin(coin).port
   end
 
   def label_for(coin)
