@@ -1,5 +1,5 @@
 <%= link_to(coin) do %>
-  <li<%= ' class=multi' if port == '6666' %>>
+  <li<%= ' id=chunkyport-box' if port == '6666' %>>
     <%= coin_image(coin, alt: coin, class: 'pull-left img-circle') %>
     <div class="news-item-info">
       <div class="name"><%= coin_full_name(coin).capitalize %></div>
@@ -7,7 +7,7 @@
 
       <% if port == '6666' %>
         <div class="time">Workers: <%= pool.number_of_workers %></div>
-        <div class="time">Last block: <%= pool.hash_rate %> MH/s</div>
+        <div class="time">Hashrate: <%= pool.hash_rate %> MH/s</div>
       <% else %>
         <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
       <% end %>
