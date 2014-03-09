@@ -34,6 +34,8 @@ gem 'rack-php-session'
 gem 'puma'
 
 group :development do
+  gem 'sqlite3'
+  # gem 'fakeweb'
   gem 'jazz_hands'
 end
 

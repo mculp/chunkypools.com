@@ -1,18 +1,22 @@
 <section class="widget">
   <header>
+    <h4><i class="eicon-network"></i> ChunkyPort</h4>
+  </header>
+  <div class="body">
+    <ul class="news-list">
+      <%= render 'coin', coin: @multiport_coin, port: '6666' %>
+    </ul>
+  </div>
+</section>
+
+<section class="widget">
+  <header>
     <h4><i class="fa fa-group"></i> Pools</h4>
   </header>
   <div class="body">
     <ul class="news-list">
       <% @pool_info.pools.each.with_index do |pool, i| %>
-        <li data-link="<%= chunky_url + pool.coin.downcase %>">
-        <%= coin_image(pool.coin, alt: '', class: 'pull-left img-circle') %>
-          <div class="news-item-info">
-            <div class="name"><a href="#"><%= coin_full_name(pool.coin).capitalize %></a></div>
-            <div class="position">us-east.chunkypools.com:<%= Pool::COINS.find { |c| c.code == pool.coin.downcase }.try(:port) %></div>
-            <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
-          </div>
-        </li>
+        <%= render 'coin', coin: pool.coin, port: coin_port(pool.coin) %>
       <% end %>
     </ul>
    </div>

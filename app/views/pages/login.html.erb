@@ -1,5 +1,10 @@
 <% content_for(:title, 'Login') %>
 <div class="content container">
+  <% if params[:error] %>
+    <div class="alert alert-danger col-md-8">
+      <p>there was an error logging into your account. please try again or contact us if the problem persists.</p>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-md-12">
       <h2 class="page-title">Login <small>access your account</small></h2>

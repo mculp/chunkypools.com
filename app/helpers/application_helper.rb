@@ -50,11 +50,15 @@ module ApplicationHelper
   end
 
   def coin_image(coin, options = {})
-    image_tag("#{COINS[coin.upcase][:image]}.png", options) rescue nil
+    image_tag("#{COINS[coin.upcase][:image]}.png", options)
   end
 
   def coin_full_name(coin)
     COINS[coin.upcase][:full_name]
+  end
+
+  def coin_port(coin)
+    COINS[coin.upcase][:port]
   end
 
   def label_for(coin)

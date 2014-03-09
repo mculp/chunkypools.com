@@ -1,5 +1,14 @@
 <% content_for(:title, 'Register') %>
 <div class="content container">
+  <% if params[:error] %>
+    <div class="alert alert-danger col-md-8">
+      <p>there was an error registering your account.</p>
+
+      <% if params[:message] %>
+        <p><strong><%= params[:message] %></strong></p>
+      <% end %>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-md-12">
       <h2 class="page-title">Register <small>create your account</small></h2>
@@ -10,9 +19,7 @@
       <section class="widget">
         <div class="body">
           <form action="<%= chunky_mpos %>/index.php" id="user-form" class="form-horizontal label-left" novalidate="novalidate" method="post">
-            <input type="hidden" name="page" value="register">
-            <input type="hidden" name="action" value="register">
-            <input type="hidden" name="to" value="/">
+            <input type="hidden" name="page" value="external_register">
 
             <fieldset>
                 <div class="control-group top-field">
