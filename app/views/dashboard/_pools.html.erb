@@ -4,7 +4,7 @@
   </header>
   <div class="body">
     <ul class="news-list">
-      <%= render 'coin', coin: @multiport_coin, port: '6666' %>
+      <%= render 'coin', coin: @multiport_coin, port: '6666', pool: pool(@multiport_coin) %>
     </ul>
   </div>
 </section>
@@ -16,7 +16,7 @@
   <div class="body">
     <ul class="news-list">
       <% @pool_info.pools.each.with_index do |pool, i| %>
-        <%= render 'coin', coin: pool.coin, port: coin_port(pool.coin) %>
+        <%= render 'coin', coin: pool.coin, port: coin_port(pool.coin), pool: pool(pool.coin) %>
       <% end %>
     </ul>
    </div>

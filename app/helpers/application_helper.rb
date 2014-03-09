@@ -18,6 +18,9 @@ module ApplicationHelper
     'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' }
   }
 
+  def pool(coin)
+    @pool_info.pools.find { |pool| pool.coin == coin }
+  end
 
   def fastest_pool
     @pool_info.pools.find { |pool| pool.coin == @pool_info.best_hash_rate }.hash_rate
