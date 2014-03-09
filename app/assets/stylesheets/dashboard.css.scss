@@ -11,7 +11,9 @@
 
 .news-list {
   a {
-    text-decoration: none;
+    &:hover {
+      text-decoration: none
+    }
 
     .position {
       color: grey;
