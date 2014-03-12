@@ -69,6 +69,10 @@ class Pool
     grab_and_parse :getuserbalance, api_key
   end
 
+  def workers(api_key)
+    grab_and_parse :getuserworkers, api_key
+  end
+
   def self.coin(code)
     COINS.find { |coin| coin.code == code.downcase }
   end
@@ -102,6 +106,25 @@ class Pool
 
       { coin: code, confirmed: response['confirmed'], unconfirmed: response['unconfirmed'] }
     end
+  end
+
+  def self.workers(api_key)
+    active_workers = []
+
+    active_coins.each do |coin|
+      code = coin.code
+      response = new(code).balance(api_key)
+
+      workers = response.select { |worker| worker['hashrate'] > 0 }
+
+      next unless workers.present?
+
+      workers.each do |worker|
+        active_workers << { coin: code.upcase, username: worker['username'], hash_rate: worker['hashrate'] }
+      end
+    end
+
+    active_workers
   end
 
   private
