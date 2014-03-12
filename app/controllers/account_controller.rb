@@ -1,10 +1,13 @@
 class AccountController < ApplicationController
   def show
-    login_from_php redirect: true, path: "/account"
+    login_from_php
+
+    redirect_to login_path and return unless @current_user_id
 
     @api_key = Account.where(id: @current_user_id).select(:api_key).first.try(:api_key)
 
     @balances = Pool.balances(@api_key)
+    @workers = Pool.workers(@api_key)
   end
 
   def edit

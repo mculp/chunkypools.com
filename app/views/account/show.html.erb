@@ -41,5 +41,30 @@
         </div>
       </section>
     </div>
+    <div class="col-md-4">
+      <section class="widget">
+        <header>
+          <h4>
+            <i class="fa fa-sitemap"></i>
+            Workers
+          </h4>
+        </header>
+          <div class="body">
+            <ul class="server-stats">
+              <% @workers.each do |worker| %>
+              <li>
+                <div class="key pull-right"><%= worker[:coin] %></div>
+                <div class="stat">
+                    <div class="info"><%= "%s @ %s kH/s" % [worker[:username], worker[:hash_rate]] %></div>
+                    <div class="progress progress-small">
+                      <div class="progress-bar progress-bar-<%= label_for(worker[:coin]) %>" style="width: <%= worker[:hash_rate] / 20 %>%;"></div>
+                    </div>
+                </div>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+      </section>
+    </div>
   </div>
 </div>

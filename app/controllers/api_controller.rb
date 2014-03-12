@@ -8,4 +8,9 @@ class ApiController < ApplicationController
     @balances = Pool.balances(params[:api_key])
     render json: @balances.to_json
   end
+
+  def user_workers
+    @workers = Pool.workers(params[:api_key])
+    render json: @workers.to_json
+  end
 end
