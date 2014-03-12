@@ -115,7 +115,7 @@ class Pool
       code = coin.code
       response = new(code).balance(api_key)
 
-      workers = response.select { |worker| worker['hashrate'] > 0 }
+      workers = response.select { |worker| worker['hashrate'] && worker['hashrate'] > 0 }
 
       next unless workers.present?
 
