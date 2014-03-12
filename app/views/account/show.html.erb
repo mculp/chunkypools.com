@@ -55,7 +55,7 @@
               <li>
                 <div class="key pull-right"><%= worker[:coin] %></div>
                 <div class="stat">
-                    <div class="info"><%= "%s @ %s MH/s" % [worker.slice(:username, :hash_rate)] %></div>
+                    <div class="info"><%= "%s @ %s MH/s" % [worker[:username], worker[:hash_rate]] %></div>
                     <div class="progress progress-small">
                       <div class="progress-bar progress-bar-<%= label_for(worker[:coin]) %>" style="width: <%= worker[:hash_rate] / 20 %>%;"></div>
                     </div>
