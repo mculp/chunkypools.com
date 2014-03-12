@@ -115,6 +115,8 @@ class Pool
       code = coin.code
       response = new(code).balance(api_key)
 
+      Rails.logger.info response
+
       workers = response.select { |worker| worker['hashrate'] && worker['hashrate'] > 0 }
 
       next unless workers.present?
