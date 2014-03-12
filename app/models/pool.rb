@@ -113,9 +113,7 @@ class Pool
 
     active_coins.each do |coin|
       code = coin.code
-      response = new(code).balance(api_key)
-
-      Rails.logger.info response
+      response = new(code).workers(api_key)
 
       workers = response.select { |worker| worker['hashrate'] && worker['hashrate'] > 0 }
 
