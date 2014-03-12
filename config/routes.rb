@@ -9,6 +9,7 @@ ChunkyPools::Application.routes.draw do
   get '/login' => 'pages#login'
   get '/logout' => 'pages#logout'
   get '/register' => 'pages#register'
+  get '/chat' => 'pages#chat'
   get '/contact' => 'pages#contact'
 
   root 'dashboard#show'
