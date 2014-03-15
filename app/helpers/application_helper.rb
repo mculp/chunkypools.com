@@ -15,6 +15,7 @@ module ApplicationHelper
     'RON'  =>  { pill_color: 'danger',   image: 'swansoncoin120',      full_name: 'ronswansoncoin' },
     'AUR'  =>  { pill_color: 'success',  image: 'auroracoin120',   full_name: 'auroracoin' },
     'FLAP' =>  { pill_color: 'warning',  image: 'flappycoin120',   full_name: 'flappycoin' },
+    'PCN' =>   { pill_color: 'primary',  image: 'procoin120',   full_name: 'procoin' },
     'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' }
   }
 
