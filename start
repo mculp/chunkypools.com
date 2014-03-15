@@ -1,0 +1,1 @@
+RAILS_ENV=production bundle exec puma config.ru -d -b unix:/var/run/puma.sock --pidfile /tmp/puma/puma.pid -S /tmp/puma/puma.state

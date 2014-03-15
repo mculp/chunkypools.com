@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pumactl -P /tmp/puma/puma.pid restart

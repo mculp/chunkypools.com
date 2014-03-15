@@ -4,6 +4,7 @@ class Pool
   API_KEY = "05d16735674051d72ea5f0ce0b60adde14e66544b388bf0b313aef9a2be65314"
 
   COINS = [
+   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, host: 'doge.chunkypools.com', port: 3333),
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
    Coin.new(name: 'Rubycoin', code: 'ruby', reward: 500, port: 3342),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
