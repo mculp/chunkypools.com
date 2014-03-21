@@ -15,6 +15,7 @@ class Pool
    Coin.new(name: 'Suncoin', code: 'sun', reward: 10, port: 3345),
    Coin.new(name: 'Auroracoin', code: 'aur', reward: 25, port: 3346),
    Coin.new(name: 'Procoin', code: 'pcn', reward: 1000, port: 3347),
+   Coin.new(name: 'Spartancoin', code: 'spn', reward: 150000, port: 3348),
    Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 3333, active: false),
    Coin.new(name: 'Earthcoin', code: 'eac', reward: 11000, port: 3334, active: false),
    Coin.new(name: 'Lottocoin', code: 'lot', reward: 32000, port: 3336, active: false),
