@@ -63,7 +63,7 @@ module ApplicationHelper
   end
 
   def coin_port(coin)
-    Pool.coin(coin).port
+    Coin.active.find { |c| c.code == coin.downcase }.port
   end
 
   def label_for(coin)
