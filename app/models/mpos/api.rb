@@ -22,7 +22,11 @@ module MPOS
     def get(action)
       action = "get#{action}"
       body = Typhoeus.get(url(action), nosignal: true).response_body
-      parsed_response = JSON.parse(body)[action]['data']
+      JSON.parse(body)[action]['data']
+    end
+
+    def get_wrapped(action)
+      parsed_response = get(action)
 
       if parsed_response.is_a? Array
         parsed_response.map { |h| Hashie::Mash[h] }

@@ -1,10 +1,10 @@
 require_relative 'mpos/api'
 
-class Article
+class Article < Hashie::Mash
   def self.all
     api = MPOS::API.new('posts')
 
-    api.get :newsposts
+    api.get(:newsposts).map { |r| Article[r] }
   end
 
   def self.find(id)
