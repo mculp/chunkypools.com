@@ -11,4 +11,8 @@ class Article < Hashie::Mash
     posts = all
     posts[id - 1]
   end
+
+  def to_partial_path
+    'articles/article'
+  end
 end
