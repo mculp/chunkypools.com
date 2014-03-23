@@ -31,7 +31,7 @@ module MPOS
       if parsed_response.is_a? Array
         parsed_response.map { |h| Hashie::Mash[h] }
       else
-        Hashie::Mash[h]
+        Hashie::Mash[parsed_response]
       end
     end
 
