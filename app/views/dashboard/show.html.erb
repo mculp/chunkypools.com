@@ -1,9 +1,10 @@
 <% content_for(:title, 'Dashboard') %>
 <div class="content container">
-  <div class="alert alert-info col-md-10">
-    <p>DOGE pool RELAUNCHED! Our custom layout, bonuses, old payouts, everything coming today! <a href="/doge/" style="color: #A9DBFF">Quick link</a> | stratum+tcp://doge.chunkypools.com:3333</a>
-    <p>A very special announcement from Chunky Pools, contests and rewards programs start now. <a href="https://chunkypools.com/posts/#post-0" target="_blank" style="color: #A9DBFF">Click here for details.</a></p> 
-  </div>
+  <% if @alert.present? %>
+    <div class="alert alert-info col-md-10">
+      <%= @alert %>
+    </div>
+  <% end %>
   <div class="row">
     <div class="col-md-12">
       <h2 class="page-title">Dashboard <small>Statistics and more</small></h2>
