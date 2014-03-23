@@ -20,8 +20,9 @@ module MPOS
 
 
     def get(action)
-      body = Typhoeus.get(url("get#{action}"), nosignal: true).response_body
-      Hashie::Mash.new(JSON.parse(body)[action.to_s]['data'])
+      action = "get#{action}"
+      body = Typhoeus.get(url(action), nosignal: true).response_body
+      Hashie::Mash.new(JSON.parse(body)[action]['data'])
     end
 
     def url(action)
