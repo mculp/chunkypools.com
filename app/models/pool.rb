@@ -19,7 +19,7 @@ class Pool
     api.get :userbalance
   end
 
-  def self.workers(coin, api_key)
+  def self.worker(coin, api_key)
     api = MPOS::API.new(coin, api_key)
     api.get :userworkers
   end
@@ -62,7 +62,7 @@ class Pool
 
     Coin.active.each do |coin|
       code = coin.code
-      response = workers(code, api_key)
+      response = worker(code, api_key)
 
       workers = response.select { |worker| worker['hashrate'] && worker['hashrate'] > 0 }
 
