@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   def index
+    login_from_php
+
     @articles = Article.all
   end
 
