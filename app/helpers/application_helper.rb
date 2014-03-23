@@ -77,4 +77,8 @@ module ApplicationHelper
       link_to(content_tag(:i, nil, class: "fa fa-#{icon}") + ' ' + text, link)
     end
   end
+
+  def nav_spacer
+    content_tag(:li, ' ')
+  end
 end
