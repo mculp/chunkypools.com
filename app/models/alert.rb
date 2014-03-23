@@ -4,6 +4,6 @@ class Alert
   def self.get
     api = MPOS::API.new('posts')
 
-    api.get(:alert).alert
+    api.get_wrapped(:alert).alert
   end
 end
