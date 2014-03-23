@@ -14,12 +14,12 @@ class Pool
     }
   end
 
-  def self.balance(api_key)
+  def self.balance(coin, api_key)
     api = MPOS::API.new(coin, api_key)
     api.get :userbalance
   end
 
-  def self.workers(api_key)
+  def self.workers(coin, api_key)
     api = MPOS::API.new(coin, api_key)
     api.get :userworkers
   end
