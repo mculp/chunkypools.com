@@ -21,19 +21,21 @@
                 <th>Coin</th>
                 <th><span class="label label-success">Confirmed</span></th>
                 <th><span class="label label-warning">Unconfirmed</span></th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               <% @balances.each do |balance| %>
                 <tr>
                   <td>
-                    <p><%= coin_image balance[:coin] %></p>
+                    <p><%= link_to(coin_image(balance[:coin]), balance[:coin]) %></p>
                     <div class="coin-label">
                       <span class="label label-<%= label_for(balance[:coin]) %>"><%= balance[:coin].upcase %></span>
                     </div>
                   </td>
                   <td><%= "%.8f" % balance[:confirmed] %></td>
                   <td><%= "%.8f" % balance[:unconfirmed] %></td>
+                  <td><%= link_to('withdraw', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
                 </tr>
               <% end %>
             </tbody>
