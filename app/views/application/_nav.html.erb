@@ -11,9 +11,8 @@
     <%= nav_item "News & Updates", "/articles", "paperclip", "news" %>
     <%= nav_item "IRC / Chat", "/chat", "comments-o", "chat" %>
 
-    <%= nav_spacer %>
-
     <% if @logged_in %>
+      <%= nav_spacer %>
       <%= nav_item "Account", "/account", "cog", "account" %>
     <% end %>
 

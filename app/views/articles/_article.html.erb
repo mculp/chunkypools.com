@@ -1,8 +1,8 @@
 <section class="widget">
-  <div class="clearfix">
-    <span class="left"><strong><%= article.header %></strong></span>
-    <span class="right">posted by <strong><%= article.author %></strong> at <strong><%= article.time %> UTC</strong></span>
-  </div>
+  <header>
+    <span class="left"><strong><%= truncate(article.header, 80) %></strong></span>
+    <span class="pull-right">posted by <strong><%= article.author %></strong> at <strong><%= article.time %> UTC</strong></span>
+  </header>
 
   <div><%= raw article.content %></div>
 </section>
