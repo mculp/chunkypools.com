@@ -89,7 +89,7 @@ class Pool
     File.read('data/multiport_workers.txt').to_i
   end
 
-  def seconds_to_minutes_and_hours(seconds)
+  def self.seconds_to_minutes_and_hours(seconds)
     return [0, 1] if seconds < 60
 
     mm, ss = seconds.divmod(60)
