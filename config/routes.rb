@@ -1,5 +1,5 @@
 ChunkyPools::Application.routes.draw do
-  resources :posts, only: [:index, :show]
+  resources :articles, only: [:index, :show]
 
   resource :dashboard
 

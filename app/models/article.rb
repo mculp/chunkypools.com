@@ -1,6 +1,6 @@
 require_relative 'mpos/api'
 
-class Post
+class Article
   def self.all
     api = MPOS::API.new('posts')
 

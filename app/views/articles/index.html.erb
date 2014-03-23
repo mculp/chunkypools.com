@@ -1,14 +1,13 @@
-<% content_for(:title, "Post | #{@post.header}") %>
+<% content_for(:title, 'News and Updates') %>
 <div class="content container">
   <div class="row">
     <div class="col-md-12">
-      <h2 class="page-title">Posts <small>news &amp; updates about the site</small></h2>
+      <h2 class="page-title">News &amp; Updates <small>latest updates on the site</small></h2>
     </div>
   </div>
   <div class="row">
     <div class="col-md-10">
-      <%= render @post %>
+      <%= render @articles %>
     </div>
   </div>
 </div>
-
