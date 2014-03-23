@@ -1,4 +1,8 @@
 <section class="widget">
-  <p><%= article.header %></p>
-  <p><%= raw article.content %></p>
+  <div class="clearfix">
+    <span class="left"><strong><%= article.header %></strong></span>
+    <span class="right">posted by <strong><%= article.author %></strong> at <strong><%= article.time %> UTC</strong></span>
+  </div>
+
+  <div><%= raw article.content %></div>
 </section>

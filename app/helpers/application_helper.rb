@@ -79,6 +79,6 @@ module ApplicationHelper
   end
 
   def nav_spacer
-    content_tag(:li, ' ')
+    content_tag(:li) { raw("&nbsp;") }
   end
 end
