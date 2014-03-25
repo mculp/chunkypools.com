@@ -51,10 +51,11 @@ class Pool
   def self.balances(api_key)
     Coin.active.map do |coin|
       code = coin.code
-      response = balance(code, api_key)
+
+      response = balance(code, api_key) rescue next
 
       { coin: code, confirmed: response['confirmed'], unconfirmed: response['unconfirmed'] }
-    end
+    end.compact
   end
 
   def self.workers(api_key)
@@ -62,7 +63,8 @@ class Pool
 
     Coin.active.each do |coin|
       code = coin.code
-      response = worker(code, api_key)
+
+      response = worker(code, api_key) rescue next
 
       workers = response.select { |worker| worker['hashrate'] && worker['hashrate'] > 0 }
 
