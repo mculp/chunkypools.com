@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
   def pool_status
-    @pool_info = Pool.pool_metastatus
+    @pool_info = Pool.statuses
     render json: @pool_info.to_json
   end
 

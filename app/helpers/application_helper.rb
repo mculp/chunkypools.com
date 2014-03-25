@@ -63,10 +63,22 @@ module ApplicationHelper
   end
 
   def coin_port(coin)
-    Pool.coin(coin).port
+    Coin.active.find { |c| c.code == coin.downcase }.port
   end
 
   def label_for(coin)
     COINS[coin.upcase][:pill_color]
+  end
+
+  # <li><a href="/contact"><i class="fa fa-inbox"></i> Contact</a></li>
+  def nav_item(text, link, icon, active_condition = nil)
+    active = { class: 'active' } if active_condition && content_for(:page) == active_condition
+    content_tag(:li, active) do
+      link_to(content_tag(:i, nil, class: "fa fa-#{icon}") + ' ' + text, link)
+    end
+  end
+
+  def nav_spacer
+    content_tag(:li) { raw("&nbsp;") }
   end
 end

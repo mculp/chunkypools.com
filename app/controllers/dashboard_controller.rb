@@ -4,10 +4,10 @@ class DashboardController < ApplicationController
   def show
     login_from_php
 
+    @alert = Alert.get
+
     @pool_info = cached(Settings::STATUS_PATH) do
       body = Typhoeus.get(Settings::API + Settings::STATUS_PATH, nosignal: true).response_body
-      Rails.logger.info "host: #{Settings::API + Settings::STATUS_PATH}"
-      Rails.logger.info "body: #{body}"
       Hashie::Mash.new(JSON.parse(body))
     end
 

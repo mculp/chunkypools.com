@@ -1,4 +1,6 @@
 ChunkyPools::Application.routes.draw do
+  resources :articles, only: [:index, :show]
+
   resource :dashboard
 
   get '/api/pool/status' => 'api#pool_status'

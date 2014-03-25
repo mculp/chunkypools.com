@@ -1,2 +1,2 @@
-class Dashboard < ActiveRecord::Base
+class Dashboard
 end

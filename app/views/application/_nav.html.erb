@@ -7,25 +7,27 @@
 </div>
 <nav id="sidebar" class="sidebar nav-collapse collapse">
   <ul id="side-nav" class="side-nav">
-    <li><a href="/"><i class="fa fa-dashboard"></i> <span class="name">Dashboard</span></a></li>
-    <li><a href="/chat"><i class="fa fa-comments-o"></i> <span class="name">Chat</span></a></li>
+    <%= nav_item "Dashboard", "/", "dashboard", "dashboard" %>
+    <%= nav_item "News & Updates", "/articles", "paperclip", "news" %>
+    <%= nav_item "IRC / Chat", "/chat", "comments-o", "chat" %>
 
     <% if @logged_in %>
-      <li class="panel"><a href="/account"><i class="fa fa-cog"></i> Account</a></li>
+      <%= nav_spacer %>
+      <%= nav_item "Account", "/account", "cog", "account" %>
     <% end %>
 
-    <li>&nbsp;</li>
+    <%= nav_spacer %>
 
     <% if @logged_in %>
-      <li class="panel"><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+      <%= nav_item "Logout", "/logout", "sign-out" %>
     <% else %>
-      <li class="panel"><a href="/login"><i class="fa fa-sign-in"></i> Login</a></li>
-      <li class="panel"><a href="/register"><i class="fa fa-pencil"></i> Sign Up</a></li>
+      <%= nav_item "Login", "/login", "sign-in" %>
+      <%= nav_item "Sign Up", "/register", "pencil", "register" %>
     <% end %>
 
-    <li>&nbsp;</li>
+    <%= nav_spacer %>
 
-    <li><a href="/faq"><i class="fa fa-question"></i> <span class="name">Help / FAQ</span></a></li>
-    <li><a href="/contact"><i class="fa fa-inbox"></i> Contact</a></li>
+    <%= nav_item "Help / FAQ", "/faq", "question", "faq" %>
+    <%= nav_item "Contact", "/contact", "inbox", "contact" %>
   </ul>
 </nav>

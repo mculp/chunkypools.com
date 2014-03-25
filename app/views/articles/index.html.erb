@@ -1,0 +1,15 @@
+<% content_for(:title, 'News and Updates') %>
+<% content_for(:page, 'news') %>
+
+<div class="content container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="page-title">News &amp; Updates <small>latest updates on the site</small></h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <%= render @articles %>
+    </div>
+  </div>
+</div>
