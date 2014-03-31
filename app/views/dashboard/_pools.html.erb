@@ -16,7 +16,7 @@
   <div class="body">
     <ul class="news-list">
       <% @pool_info.pools.each.with_index do |pool, i| %>
-        <%= render 'coin', coin: pool.coin, port: coin_port(pool.coin), pool: pool(pool.coin) %>
+        <%= render 'coin', coin: pool.coin, port: coin_port(pool.coin), pool: pool(pool.coin) rescue next %>
       <% end %>
     </ul>
    </div>
