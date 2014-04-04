@@ -1,5 +1,5 @@
 class Coin
-  attr_accessor :name, :code, :reward, :port, :active
+  attr_accessor :name, :code, :reward, :port, :active, :price_source
 
   def initialize(options)
     @name = options[:name]
@@ -7,18 +7,20 @@ class Coin
     @reward = options[:reward]
     @port = options[:port]
     @active = options.has_key?(:active) ? options[:active] : true
+    @price_source = options[:price_source]
   end
 
   CONTAINER = [
    Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, host: 'doge.chunkypools.com', port: 3333),
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
-   Coin.new(name: 'Rubycoin', code: 'ruby', reward: 500, port: 3342),
+   Coin.new(name: 'Rubycoin', code: 'ruby', reward: 250, port: 3342),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
-   Coin.new(name: 'Klondikecoin', code: 'kdc', reward: 77, port: 3341),
-   Coin.new(name: 'Potcoin', code: 'pot', reward: 420, port: 3420),
-   Coin.new(name: 'Suncoin', code: 'sun', reward: 10, port: 3345),
+   Coin.new(name: 'Klondikecoin', code: 'kdc', reward: 8, port: 3341),
+   Coin.new(name: 'Potcoin', code: 'pot', reward: 420, port: 3420, price_source: 'mintpal'),
+   Coin.new(name: 'Suncoin', code: 'sun', reward: 10, port: 3345, price_source: 'mintpal'),
    Coin.new(name: 'Procoin', code: 'pcn', reward: 1000, port: 3347),
    Coin.new(name: 'Spartancoin', code: 'spn', reward: 150000, port: 3348),
+   Coin.new(name: 'Defcoin', code: 'def', reward: 50, port: 3349),
    Coin.new(name: 'Auroracoin', code: 'aur', reward: 25, port: 3346, active: false),
    Coin.new(name: 'Flappycoin', code: 'flap', reward: 500000, port: 3343, active: false),
    Coin.new(name: 'RonSwansonCoin', code: 'ron', reward: 0.125, port: 3344, active: false),

@@ -23,6 +23,7 @@
                 <th>Coin</th>
                 <th><span class="label label-success">Confirmed</span></th>
                 <th><span class="label label-warning">Unconfirmed</span></th>
+                <th><span class="label label-info">BTC Value</span></th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -37,6 +38,7 @@
                   </td>
                   <td><%= "%.8f" % balance[:confirmed] %></td>
                   <td><%= "%.8f" % balance[:unconfirmed] %></td>
+                  <td><%= "%.8f" % (balance[:confirmed] + balance[:unconfirmed]) * @exchange_rates.for(balance[:coin]).current %></td>
                   <td><%= link_to('withdraw', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
                 </tr>
               <% end %>

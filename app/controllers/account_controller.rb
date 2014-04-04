@@ -6,6 +6,9 @@ class AccountController < ApplicationController
 
     @api_key = Account.where(id: @current_user_id).select(:api_key).first.try(:api_key)
 
+    @exchange_rates = Typhoeus.get_json_as_object(Api::Endpoint::Coin::ExchangeRates.current)
+    @exchange_rates.extend(ExchangeRates)
+
     @balances = Pool.balances(@api_key)
     @workers = Pool.workers(@api_key)
   end
@@ -23,5 +26,9 @@ class AccountController < ApplicationController
         format.json { render json: @dashboard.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def bitcoin_value
+
   end
 end
