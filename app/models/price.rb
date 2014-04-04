@@ -20,6 +20,6 @@ class Price
   end
 
   def retrieve
-    @parsed_body = Typhoeus.get_json(url)
+    @parsed_body = Typhoeus.get_json_as_object(url)
   end
 end
