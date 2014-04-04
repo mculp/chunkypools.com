@@ -9,7 +9,17 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  fixtures :all
+  fixtures :account
 
   # Add more helper methods to be used by all tests here...
+end
+
+def coins(name)
+  yaml = YAML.load(open('./test/fixtures/coins.yml').read).deep_symbolize_keys!
+  Coin.new(yaml[name])
+end
+
+def response_from(service, options)
+  filename = "./test/fixtures/responses/#{service}/#{options[:coin]}.json"
+  JSON.parse(open(filename).read) 
 end

@@ -13,4 +13,14 @@ class ApiController < ApplicationController
     @workers = Pool.workers(params[:api_key])
     render json: @workers.to_json
   end
+
+  def current_exchange_rates
+    @exchange_rates = CoinPrice.current_exchange_rates
+    render json: @exchange_rates.to_json
+  end
+
+  def yesterday_exchange_rates
+    @exchange_rates = CoinPrice.yesterday_exchange_rates
+    render json: @exchange_rates.to_json
+  end
 end
