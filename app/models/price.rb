@@ -6,7 +6,7 @@ class Price
   end
 
   def self.retrieve(coin)
-    source = determine_source
+    source = determine_source(coin)
     source.new(coin).retrieve
   end
 
