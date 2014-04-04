@@ -1,5 +1,5 @@
 module ExchangeRates
   def for(coin)
-    find { |item| item[:coin].downcase == coin.downcase } 
+    find { |item| item[:coin][:code].downcase == coin.downcase } 
   end
 end
