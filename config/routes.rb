@@ -5,9 +5,9 @@ ChunkyPools::Application.routes.draw do
 
   get '/api/pool/status' => 'api#pool_status'
   get '/api/user/balances' => 'api#user_balances'
-  get '/api/coin/exchange_rate' => 'api#current_exchange_rate'
-  get '/api/coin/exchange_rate/current' => 'api#current_exchange_rate'
-  get '/api/coin/exchange_rate/yesterday' => 'api#yesterday_exchange_rate'
+  get '/api/coin/exchange_rates' => 'api#current_exchange_rate'
+  get '/api/coin/exchange_rates/current' => 'api#current_exchange_rate'
+  get '/api/coin/exchange_rates/yesterday' => 'api#yesterday_exchange_rate'
 
   get '/account' => 'account#show'
   get '/faq' => 'pages#faq'
