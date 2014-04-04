@@ -5,7 +5,13 @@ module Typhoeus
   end 
 
   def self.get_json_as_object(url)
-    Hashie::Mash[get_json(url)]
+    body = get_json(url)
+
+    if body.is_a? Array
+      body.map { |b| Hashie::Mash[b] }
+    else
+      Hashie::Mash[body]
+    end
   end
 end
 
