@@ -11,39 +11,25 @@
     <div class="col-md-8">
       <section class="widget">
         <header>
-          <h4>
-            <i class="fa fa-bitcoin"></i>
-            Balances
-          </h4>
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#stats" data-toggle="tab">
+                <i class="fa fa-bitcoin"></i>
+                Balances
+              </a>
+            </li>
+            <li class="">
+              <a href="#report" data-toggle="tab"><i class="eicon-address"></i> Addresses</a>
+            </li>
+          </ul>
         </header>
-        <div class="body">
-          <table class="table table-striped table-images">
-            <thead>
-              <tr>
-                <th>Coin</th>
-                <th><span class="label label-success">Confirmed</span></th>
-                <th><span class="label label-warning">Unconfirmed</span></th>
-                <th><span class="label label-info">BTC Value</span></th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @balances.each do |balance| %>
-                <tr>
-                  <td>
-                    <p><%= link_to(coin_image(balance[:coin]), balance[:coin]) %></p>
-                    <div class="coin-label">
-                      <span class="label label-<%= label_for(balance[:coin]) %>"><%= balance[:coin].upcase %></span>
-                    </div>
-                  </td>
-                  <td><%= "%.8f" % balance[:confirmed] %></td>
-                  <td><%= "%.8f" % balance[:unconfirmed] %></td>
-                  <td><%= "%.8f" % ((balance[:confirmed].to_f + balance[:unconfirmed].to_f) * @exchange_rates.for(balance[:coin]).current_price) %></td>
-                  <td><%= link_to('withdraw', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
+        <div class="body tab-content">
+          <div id="balances" class="tab-pane">
+            <%= render 'balances_tab' %>
+          </div>
+          <div id="accounts" class="tab-pane">
+            <%= render 'accounts_tab' %>
+          </div>
         </div>
       </section>
     </div>

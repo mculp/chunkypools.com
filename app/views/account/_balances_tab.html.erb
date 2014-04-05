@@ -1,0 +1,32 @@
+<table class="table table-striped table-images">
+  <thead>
+    <tr>
+      <th>Coin</th>
+      <th>Confirmed</th>
+      <th>Unconfirmed</th>
+      <th>BTC Value</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @balances.each do |balance| %>
+      <tr>
+        <td>
+          <p><%= link_to(coin_image(balance[:coin]), balance[:coin]) %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for(balance[:coin]) %>"><%= balance[:coin].upcase %></span>
+          </div>
+        </td>
+        <td><span class="label label-success"><%= "%.8f" % balance[:confirmed] %></span></td>
+        <td><span class="label label-warning"><%= "%.8f" % balance[:unconfirmed] %></span></td>
+        <td>
+          <div><span class="label label-info"><%= "%.8f" % btc_value(balance) %></span></div>
+          <div class="exchange-rate exchange-rate-label"><%= balance[:coin].upcase %>/BTC</div>
+          <div class="exchange-rate label label-default"><%= @exchange_rates.for(balance[:coin] %></div>
+        </td>
+
+        <td><%= link_to('withdraw', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
