@@ -16,8 +16,8 @@
             <span class="label label-<%= label_for(balance[:coin]) %>"><%= balance[:coin].upcase %></span>
           </div>
         </td>
-        <td><span class="coin-address"><%= @coin_addresses.for(balance[:coin]).address %></span></td>
-        <td><span class="automatic-payout-threshold"><%= @coin_addresses.for(balance[:coin]).ap_threshold %></span></td>
+        <td><span class="coin-address"><%= @coin_addresses.for(balance[:coin]).try(:address) || link_to('add address', "#{balance[:coin]}/index.php?page=account&action=edit") %></span></td>
+        <td><span class="automatic-payout-threshold"><%= @coin_addresses.for(balance[:coin]).try(:ap_threshold) || link_to('update threshold', "#{balance[:coin]}/index.php?page=account&action=edit") %></span></td>
 
         <td>
           <%= link_to('edit', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %>
