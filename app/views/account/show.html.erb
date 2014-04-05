@@ -13,13 +13,13 @@
         <header>
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="#stats" data-toggle="tab">
+              <a href="#balances" data-toggle="tab">
                 <i class="fa fa-bitcoin"></i>
                 Balances
               </a>
             </li>
             <li class="">
-              <a href="#report" data-toggle="tab"><i class="eicon-address"></i> Addresses</a>
+              <a href="#addresses" data-toggle="tab"><i class="eicon-address"></i> Addresses</a>
             </li>
           </ul>
         </header>
@@ -27,8 +27,8 @@
           <div id="balances" class="tab-pane active clearfix">
             <%= render 'balances_tab' %>
           </div>
-          <div id="accounts" class="tab-pane">
-            <%= render 'accounts_tab' %>
+          <div id="addresses" class="tab-pane">
+            <%= render 'addresses_tab' %>
           </div>
         </div>
       </section>
