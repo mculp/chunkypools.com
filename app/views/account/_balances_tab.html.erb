@@ -22,7 +22,7 @@
         <td>
           <div><span class="label label-info"><%= "%.8f" % btc_value(balance) %></span></div>
           <div class="exchange-rate exchange-rate-label"><%= balance[:coin].upcase %>/BTC</div>
-          <div class="exchange-rate label label-default"><%= @exchange_rates.for(balance[:coin] %></div>
+          <div class="exchange-rate label label-default"><%= @exchange_rates.for(balance[:coin]) %></div>
         </td>
 
         <td><%= link_to('withdraw', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
