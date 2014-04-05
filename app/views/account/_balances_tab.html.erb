@@ -2,9 +2,9 @@
   <thead>
     <tr>
       <th>Coin</th>
-      <th>Confirmed</th>
-      <th>Unconfirmed</th>
-      <th>BTC Value</th>
+      <th class="col-md-3">Confirmed</th>
+      <th class="col-md-3">Unconfirmed</th>
+      <th class="col-md-3">BTC Value</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -22,7 +22,7 @@
         <td>
           <div><span class="label label-info"><%= "%.8f" % btc_value(balance) %></span></div>
           <div class="exchange-rate exchange-rate-label"><%= balance[:coin].upcase %>/BTC</div>
-          <div class="exchange-rate label label-default"><%= @exchange_rates.for(balance[:coin]).current_price %></div>
+          <div class="exchange-rate label label-default"><%= "%.8f" % @exchange_rates.for(balance[:coin]).current_price %></div>
         </td>
 
         <td><%= link_to('withdraw', "#{balance[:coin]}/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
