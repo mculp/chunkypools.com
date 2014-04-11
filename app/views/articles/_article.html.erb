@@ -4,5 +4,5 @@
     <span class="pull-right">posted by <strong><%= article.author %></strong> at <strong><%= article.time %> UTC</strong></span>
   </header>
 
-  <div><%= raw article.content %></div>
+  <div><%= raw Kramdown::Document.new(article.content).to_html %></div>
 </section>
