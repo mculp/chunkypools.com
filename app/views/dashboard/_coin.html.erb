@@ -8,8 +8,7 @@
       <div class="position">us-east.chunkypools.com:<%= port %></div>
 
       <% if port == '6666' %>
-        <div class="time">Workers: <%= @multipool_workers %></div>
-        <div class="time">Hashrate: <%= @hash_rate %> MH/s</div>
+        <div class="time">Workers: <%= @multiport_workers %></div>
       <% elsif coin.type == 'p2pool' %>
         <div class="time"><strong>p2pool</strong> <i class="fa fa-external-link"></i></div>
       <% else %>
