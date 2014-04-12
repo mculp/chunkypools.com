@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
     login_from_php
 
     @articles = Article.all
+    @number_of_articles = @articles.size
   end
 
   def show
