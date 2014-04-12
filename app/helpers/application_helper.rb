@@ -19,7 +19,8 @@ module ApplicationHelper
     'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' },
     'SPN' =>   { pill_color: 'default',   image: 'spartancoin120',     full_name: 'spartancoin' },
     'DEF' =>   { pill_color: 'success',   image: 'defcoin120',     full_name: 'defcoin' },
-    'STP' =>   { pill_color: 'default',   image: 'stoopidcoin120',     full_name: 'stoopidcoin' }
+    'STP' =>   { pill_color: 'default',   image: 'stoopidcoin120',     full_name: 'stoopidcoin' },
+    'MUN' =>   { pill_color: 'success',   image: 'muniti120',     full_name: 'muniti' }
   }
 
   def pool(coin)
