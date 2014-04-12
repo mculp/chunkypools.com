@@ -11,7 +11,7 @@ class Coin
   end
 
   CONTAINER = [
-   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, host: 'doge.chunkypools.com', port: 3333),
+   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, host: 'doge.chunkypools.com', port: 3333, active: false),
    Coin.new(name: 'Stoopidcoin', code: 'stp', reward: 25000, port: 3334),
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
    Coin.new(name: 'Rubycoin', code: 'ruby', reward: 250, port: 3342),

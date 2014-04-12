@@ -41,6 +41,16 @@ class DashboardController < ApplicationController
     end
 
     @sparkline_order = @pools_table.map(&:coin)
+  rescue Exception => e
+    Rails.logger.info "dashboard error: " + e.inspect
+    @pool_info = Hashie::Mash.new(pools: [])
+    @pool_table = []
+    @sparklines = []
+    @sparkline_order = []
+    @results = []
+    @multiport_coin = 'none'
+    @multiport_workers = 0
+    @hash_rate = 0
   end
 
   def cached(key)
