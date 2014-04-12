@@ -1,3 +1,5 @@
+<% article_counter ||= params[:id].to_i - 1 %>
+
 <section class="widget">
   <header>
     <span class="left"><strong><%= article_header(article, article_counter) %></strong></span>
