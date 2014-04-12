@@ -9,7 +9,7 @@ class Article < Hashie::Mash
 
   def self.find(id)
     posts = all
-    posts[id - 1]
+    posts[id.to_i - 1]
   end
 
   def to_partial_path
