@@ -21,7 +21,7 @@
     </ul>
   </header>
   <div class="body tab-content">
-    <div id="scrypt">
+    <div id="scrypt" class="tab-pane active">
       <h5 class="tab-header"><i class="fa fa-group"></i> scrypt pools</h5>
       <ul class="news-list">
         <% Coin.scrypt.each do |coin| %>
@@ -29,7 +29,7 @@
         <% end %>
       </ul>
     </div>
-    <div id="x11">
+    <div id="x11" class="tab-pane">
       <h5 class="tab-header"><i class="fa fa-group"></i> x11 pools</h5>
       <ul class="news-list">
         <% Coin.x11.each do |coin| %>
