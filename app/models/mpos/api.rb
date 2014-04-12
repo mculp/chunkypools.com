@@ -25,9 +25,9 @@ module MPOS
         body = Typhoeus.get(url(action), nosignal: true).response_body
         JSON.parse(body)[action]['data']
       rescue Exception => e
-        Rails.logger.debug "We ran into a problem trying to hit the mpos endpoint."
-        Rails.logger.debug "action: #{action}, url: #{url(action)}, body: #{body}"
-        Rails.logger.debug e.inspect
+        Rails.logger.info "We ran into a problem trying to hit the mpos endpoint."
+        Rails.logger.info "action: #{action}, url: #{url(action)}, body: #{body}"
+        Rails.logger.info e.inspect
 
         { error: true }
       end
