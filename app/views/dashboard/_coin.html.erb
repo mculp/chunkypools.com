@@ -1,15 +1,19 @@
-<%= link_to(coin.downcase) do %>
+<% port ||= coin.port %>
+
+<%= link_to(coin.code.downcase) do %>
   <li<%= ' id=chunkyport-box' if port == '6666' %>>
-    <%= coin_image(coin, alt: coin, class: 'pull-left img-circle') %>
+    <%= coin_image(coin.code, alt: coin.code, class: 'pull-left img-circle') %>
     <div class="news-item-info">
-      <div class="name"><%= coin_full_name(coin).capitalize %></div>
+      <div class="name"><%= coin.name.capitalize %></div>
       <div class="position">us-east.chunkypools.com:<%= port %></div>
 
       <% if port == '6666' %>
-        <div class="time">Workers: <%= pool.number_of_workers %></div>
-        <div class="time">Hashrate: <%= pool.hash_rate %> MH/s</div>
+        <div class="time">Workers: <%= @multipool_workers %></div>
+        <div class="time">Hashrate: <%= @hash_rate %> MH/s</div>
+      <% elsif coin.type == 'p2pool' %>
+        <div class="time"><strong>p2pool</strong></div>
       <% else %>
-        <div class="time">Last block: <%= "%sh %sm " % pool.time_since_last_block %></div>
+        <div class="time">Last block: <%= "%sh %sm " % time_since_last_block(coin.code) %></div>
       <% end %>
     </div>
   </li>

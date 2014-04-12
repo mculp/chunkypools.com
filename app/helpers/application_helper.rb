@@ -34,6 +34,10 @@ module ApplicationHelper
     @pool_info.pools.find { |pool| pool.coin == @pool_info.most_workers }.number_of_workers
   end
 
+  def time_since_last_block(coin)
+    pool(coin).time_since_last_block 
+  end
+
   def arrows
     older = @raw_results.first
 

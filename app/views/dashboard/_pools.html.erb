@@ -4,20 +4,38 @@
   </header>
   <div class="body">
     <ul class="news-list">
-      <%= render 'coin', coin: @multiport_coin, port: '6666', pool: pool(@multiport_coin) %>
+      <%= render 'coin', coin: Coin[@multiport_coin], port: '6666' %>
     </ul>
   </div>
 </section>
 
-<section class="widget">
+<section class="widget widget-tabs">
   <header>
-    <h4><i class="fa fa-group"></i> Pools</h4>
-  </header>
-  <div class="body">
-    <ul class="news-list">
-      <% @pool_info.pools.each.with_index do |pool, i| %>
-        <%= render 'coin', coin: pool.coin, port: coin_port(pool.coin), pool: pool(pool.coin) rescue next %>
-      <% end %>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#scrypt" data-toggle="tab">scrypt</a>
+      </li>
+      <li>
+        <a href="#x11" data-toggle="tab">x11</a>
+      </li>
     </ul>
-   </div>
+  </header>
+  <div class="body tab-content">
+    <div id="scrypt">
+      <h5 class="tab-header"><i class="fa fa-group"></i> scrypt pools</h5>
+      <ul class="news-list">
+        <% Coin.scrypt.each do |coin| %>
+          <%= render 'coin', coin: coin %>
+        <% end %>
+      </ul>
+    </div>
+    <div id="x11">
+      <h5 class="tab-header"><i class="fa fa-group"></i> x11 pools</h5>
+      <ul class="news-list">
+        <% Coin.x11.each do |coin| %>
+          <%= render 'coin', coin: coin %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </section>

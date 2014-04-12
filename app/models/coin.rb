@@ -1,5 +1,5 @@
 class Coin
-  attr_accessor :name, :code, :reward, :port, :active, :price_source
+  attr_accessor :name, :code, :reward, :port, :active, :price_source, :type, :algorithm
 
   def initialize(options)
     @name = options[:name]
@@ -8,10 +8,14 @@ class Coin
     @port = options[:port]
     @active = options.has_key?(:active) ? options[:active] : true
     @price_source = options[:price_source]
+    @type = options[:type] || 'mpos'
+    @algorithm = options[:algorithm] || 'scrypt'
   end
 
+  # TODO: move this to config file
   CONTAINER = [
-   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, host: 'doge.chunkypools.com', port: 3333, active: false),
+   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 22550, type: 'p2pool'),
+   Coin.new(name: 'Muniti', code: 'mun', reward: 39, port: 1133, algorithm: 'x11'),
    Coin.new(name: 'Stoopidcoin', code: 'stp', reward: 25000, port: 3334),
    Coin.new(name: 'RonPaulCoin', code: 'rpc', reward: 1, port: 3335),
    Coin.new(name: 'Rubycoin', code: 'ruby', reward: 250, port: 3342),
@@ -38,7 +42,19 @@ class Coin
     CONTAINER
   end
 
+  def self.[](code)
+    CONTAINER.find { |c| c.code == code.downcase } 
+  end
+
   def self.active
     @active ||= CONTAINER.select(&:active)
+  end
+
+  def self.scrypt
+    CONTAINER.select { |c| c.active && c.algorithm == 'scrypt' }
+  end
+
+  def self.x11
+    CONTAINER.select { |c| c.active && c.algorithm == 'x11' }
   end
 end
