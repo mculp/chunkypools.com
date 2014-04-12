@@ -24,9 +24,7 @@ module ApplicationHelper
   }
 
   def pool(coin)
-    Rails.logger.info @pool_info.pools.inspect
-    Rails.logger.info coin.inspect
-    @pool_info.pools.find { |pool| pool.coin == coin }
+    @pool_info.pools.find { |pool| pool.coin.downcase == coin.downcase }
   end
 
   def fastest_pool
