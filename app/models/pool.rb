@@ -27,7 +27,7 @@ class Pool
 
 
   def self.statuses
-    pools = Coin.active.map do |coin|
+    pools = Coin.active_mpos.map do |coin|
       code = coin.code
       status(code).merge(coin: code.upcase)
     end
@@ -49,7 +49,7 @@ class Pool
   end
 
   def self.balances(api_key)
-    Coin.active.map do |coin|
+    Coin.active_mpos.map do |coin|
       code = coin.code
 
       response = balance(code, api_key) rescue next
@@ -61,7 +61,7 @@ class Pool
   def self.workers(api_key)
     active_workers = []
 
-    Coin.active.each do |coin|
+    Coin.active_mpos.each do |coin|
       code = coin.code
 
       response = worker(code, api_key) rescue next

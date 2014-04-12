@@ -50,6 +50,10 @@ class Coin
     @active ||= CONTAINER.select(&:active)
   end
 
+  def self.active_mpos
+    CONTAINER.select { |c| c.active && c.type == 'mpos' } 
+  end
+
   def self.scrypt
     CONTAINER.select { |c| c.active && c.algorithm == 'scrypt' }
   end
