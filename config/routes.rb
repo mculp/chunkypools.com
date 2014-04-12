@@ -17,6 +17,8 @@ ChunkyPools::Application.routes.draw do
   get '/chat' => 'pages#chat'
   get '/contact' => 'pages#contact'
 
+  get '/doge' => redirect('http://chunkypools.com:22550')
+
   root 'dashboard#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
