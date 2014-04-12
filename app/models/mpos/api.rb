@@ -20,9 +20,15 @@ module MPOS
 
 
     def get(action)
-      action = "get#{action}"
-      body = Typhoeus.get(url(action), nosignal: true).response_body
-      JSON.parse(body)[action]['data']
+      begin
+        action = "get#{action}"
+        body = Typhoeus.get(url(action), nosignal: true).response_body
+        JSON.parse(body)[action]['data']
+      rescue Exception => e
+        Rails.logger.debug "We ran into a problem trying to hit the mpos endpoint."
+        Rails.logger.debug "action: #{action}, url: #{url(action)}, body: #{body}"
+        Rails.logger.debug e.inspect
+      end
     end
 
     def get_wrapped(action)
