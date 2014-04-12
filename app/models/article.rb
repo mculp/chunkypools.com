@@ -8,7 +8,7 @@ class Article < Hashie::Mash
   end
 
   def self.find(id)
-    posts = all
+    posts = all.reverse
     posts[id.to_i]
   end
 
