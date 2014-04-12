@@ -24,6 +24,8 @@ module ApplicationHelper
   }
 
   def pool(coin)
+    Rails.logger.info @pool_info.pools.inspect
+    Rails.logger.info coin.inspect
     @pool_info.pools.find { |pool| pool.coin == coin }
   end
 
