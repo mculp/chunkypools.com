@@ -11,7 +11,7 @@
         <div class="time">Workers: <%= @multipool_workers %></div>
         <div class="time">Hashrate: <%= @hash_rate %> MH/s</div>
       <% elsif coin.type == 'p2pool' %>
-        <div class="time"><strong>p2pool</strong></div>
+        <div class="time"><strong>p2pool</strong> <i class="fa fa-external-link"></i></div>
       <% else %>
         <div class="time">Last block: <%= "%sh %sm " % time_since_last_block(coin.code) %></div>
       <% end %>
