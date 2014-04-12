@@ -28,6 +28,8 @@ module MPOS
         Rails.logger.debug "We ran into a problem trying to hit the mpos endpoint."
         Rails.logger.debug "action: #{action}, url: #{url(action)}, body: #{body}"
         Rails.logger.debug e.inspect
+
+        { error: true }
       end
     end
 
