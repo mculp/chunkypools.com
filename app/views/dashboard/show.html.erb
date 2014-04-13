@@ -1,6 +1,8 @@
 <% content_for(:title, 'Dashboard') %>
 <% content_for(:page, 'dashboard') %>
 
+<% massage %>
+
 <div class="content container">
   <% if @alert.present? %>
     <div class="alert alert-info col-md-10">
@@ -22,8 +24,6 @@
     </div>
   </div>
 </div>
-
-<% massage %>
 
 <script>
 window.pool_info = <%= @latest_display_data.to_json.html_safe %>;
