@@ -24,31 +24,31 @@ module ApplicationHelper
   }
 
   def pool(coin)
-    @pool_info.pools.find { |pool| pool.coin.downcase == coin.downcase }
+    @latest_display_data.pools.find { |pool| pool.coin.downcase == coin.downcase }
   end
 
   def fastest_pool
-    @pool_info.pools.find { |pool| pool.coin == @pool_info.best_hash_rate }.hash_rate
+    @latest_display_data.pools.find { |pool| pool.coin == @latest_display_data.best_hash_rate }.hash_rate
   end
 
   def most_popular_pool
-    @pool_info.pools.find { |pool| pool.coin == @pool_info.most_workers }.number_of_workers
+    @latest_display_data.pools.find { |pool| pool.coin == @latest_display_data.most_workers }.number_of_workers
   end
 
   def time_since_last_block(coin)
-    pool(coin).time_since_last_block 
+    pool(coin).time_since_last_block
   end
 
   def arrows
-    older = @raw_results.first
+    older = @display_data[1]
 
-    old_workers = older['pools'].find { |pool| pool['coin'] == @pool_info.most_workers }['number_of_workers']
-    old_hashrate = older['pools'].find { |pool| pool['coin'] == @pool_info.best_hash_rate }['hash_rate']
+    old_workers = older['pools'].find { |pool| pool['coin'] == @latest_display_data.most_workers }['number_of_workers']
+    old_hashrate = older['pools'].find { |pool| pool['coin'] == @latest_display_data.best_hash_rate }['hash_rate']
 
     [
-      @pool_info.hash_rate > older['hash_rate'],
+      @latest_display_data.hash_rate > older['hash_rate'],
       fastest_pool > old_hashrate,
-      @pool_info.workers > older['workers'],
+      @latest_display_data.workers > older['workers'],
       most_popular_pool > old_workers
     ].map do |cond|
       cond ? "fa-caret-up color-green" : "fa-caret-down color-red"

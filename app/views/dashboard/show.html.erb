@@ -23,8 +23,10 @@
   </div>
 </div>
 
+<% massage %>
+
 <script>
-window.pool_info = <%= @pool_info.to_json.html_safe %>;
+window.pool_info = <%= @latest_display_data.to_json.html_safe %>;
 window.results = <%= @results.to_json.html_safe %>;
 window.sparklines = <%= @sparklines.to_json.html_safe %>;
 window.sparkline_order = <%= @sparkline_order.to_json.html_safe %>;
