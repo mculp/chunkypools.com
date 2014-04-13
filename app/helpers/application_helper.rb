@@ -37,7 +37,8 @@ module ApplicationHelper
   end
 
   def time_since_last_block(coin)
-    pool(coin).time_since_last_block
+    pool = pool(coin)
+    pool.try(:time_since_last_block) || [0, 0]
   end
 
   def arrows
