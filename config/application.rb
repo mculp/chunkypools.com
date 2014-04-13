@@ -22,5 +22,7 @@ module ChunkyPools
     config.cache_store = :dalli_store, { expires_in: 5.minutes }
 
     config.middleware.use Rack::PHPSession
+
+    config.exceptions_app = self.routes
   end
 end

@@ -19,6 +19,10 @@ ChunkyPools::Application.routes.draw do
 
   get '/doge' => redirect('http://chunkypools.com:22550')
 
+  get "/404", :to => "errors#not_found"
+  get "/422", :to => "errors#unacceptable"
+  get "/500", :to => "errors#internal_error"
+
   root 'dashboard#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
