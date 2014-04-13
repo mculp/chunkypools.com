@@ -17,6 +17,7 @@ class Coin
    Coin.new(name: 'Defcoin', code: 'def', reward: 50, port: 3349),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
    Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 22550, type: 'p2pool'),
+   Coin.new(name: 'Jennycoin', code: 'jny', reward: 867.5309, port: 3336),
    Coin.new(name: 'Klondikecoin', code: 'kdc', reward: 8, port: 3341),
    Coin.new(name: 'Muniti', code: 'mun', reward: 39, port: 1133, algorithm: 'x11'),
    Coin.new(name: 'Potcoin', code: 'pot', reward: 420, port: 3420, price_source: 'mintpal'),
