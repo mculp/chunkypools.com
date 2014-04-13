@@ -18,7 +18,7 @@
         <% @pools_table.each.with_index do |pool, i| %>
           <tr>
             <td><span class="label label-<%= label_for(pool.coin) %>"><%= pool.coin %></span></td>
-            <td><%= pool.hash_rate %> MH/s</td>
+            <td><%= "%.2f" % pool.hash_rate %> MH/s</td>
             <td><strong class="color-green"><%= pool.number_of_workers %></strong></td>
             <td class="hidden-xs"><%= "%.2f" % pool.difficulty %></td>
             <td class="hidden-xs"><%= "%sh %sm " % pool.time_since_last_block %></td>

@@ -12,11 +12,11 @@
       <div class="row">
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="eicon-users"></i> Pool Hashrate</div>
-            <div class="value"><%= @latest_display_data.hash_rate %> MH/s <i class="fa <%= arrows[0] rescue 'fa-caret-up color-green' %>"></i></div>
+            <div class="value"><%= "%.0f" % @latest_display_data.hash_rate %> MH/s <i class="fa <%= arrows[0] rescue 'fa-caret-up color-green' %>"></i></div>
         </div>
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="eicon-user"></i> Fastest Pool</div>
-            <div class="value"><%= fastest_pool %> MH/s <i class="fa <%= arrows[1] rescue 'fa-caret-up color-green' %>"></i></div>
+            <div class="value"><%= "%.0f" % fastest_pool %> MH/s <i class="fa <%= arrows[1] rescue 'fa-caret-up color-green' %>"></i></div>
             <div class="subvalue label label-<%= label_for(@latest_display_data.best_hash_rate) %>"><%= @latest_display_data.best_hash_rate %></div>
         </div>
         <div class="col-sm-3 col-xs-6">
