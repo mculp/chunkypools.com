@@ -7,6 +7,6 @@ class DashboardController < ApplicationController
     @alert = Alert.get
 
     @display_data = Dashboard.display_data
-    @latest_display_data = @display_data.first
+    @latest_display_data = Hashie::Mash[@display_data.first]
   end
 end
