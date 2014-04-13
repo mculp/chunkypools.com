@@ -1,6 +1,4 @@
 class DashboardController < ApplicationController
-  include RethinkDB::Shortcuts
-
   def show
     login_from_php
 
