@@ -20,6 +20,7 @@ module ApplicationHelper
     'SPN' =>   { pill_color: 'default',   image: 'spartancoin120',     full_name: 'spartancoin' },
     'DEF' =>   { pill_color: 'success',   image: 'defcoin120',     full_name: 'defcoin' },
     'STP' =>   { pill_color: 'default',   image: 'stoopidcoin120',     full_name: 'stoopidcoin' },
+    'JNY' =>   { pill_color: 'warning',   image: 'jennycoin120',     full_name: 'jennycoin' },
     'MUN' =>   { pill_color: 'success',   image: 'muniti120',     full_name: 'muniti' }
   }
 
