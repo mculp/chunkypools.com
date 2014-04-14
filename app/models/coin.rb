@@ -26,7 +26,8 @@ class Coin
    Coin.new(name: 'Rubycoin', code: 'ruby', reward: 250, port: 3342),
    Coin.new(name: 'Spartancoin', code: 'spn', reward: 150000, port: 3348),
    Coin.new(name: 'Stoopidcoin', code: 'stp', reward: 25000, port: 3334),
-   Coin.new(name: 'Suncoin', code: 'sun', reward: 10, port: 3345, price_source: 'mintpal')
+   Coin.new(name: 'Suncoin', code: 'sun', reward: 10, port: 3345, price_source: 'mintpal'),
+   Coin.new(name: 'Whitecoin', code: 'wc', reward: 30000, port: 3337)
   ]
 
   def self.all

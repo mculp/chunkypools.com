@@ -21,6 +21,7 @@ module ApplicationHelper
     'DEF' =>   { pill_color: 'success',   image: 'defcoin120',     full_name: 'defcoin' },
     'STP' =>   { pill_color: 'default',   image: 'stoopidcoin120',     full_name: 'stoopidcoin' },
     'JNY' =>   { pill_color: 'warning',   image: 'jennycoin120',     full_name: 'jennycoin' },
+    'WC' =>   { pill_color: 'default',   image: 'whitecoin120',     full_name: 'whitecoin' },
     'MUN' =>   { pill_color: 'success',   image: 'muniti120',     full_name: 'muniti' }
   }
 
