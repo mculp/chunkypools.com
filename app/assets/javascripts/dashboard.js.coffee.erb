@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 # lineChartOperaHack = ->
-#   return unless 
-#   
+#   return unless
+#
 #   #lineChart is somehow not rendered correctly after updates. Need to reupdate
 #   if navigator.userAgent.indexOf("Opera")
 #     clearTimeout lineResize
@@ -15,7 +15,7 @@ ready = ->
   return unless window.results
 
   nv.addGraph ->
-    
+
     #.showLegend(false)
     chart = nv.models.lineChart().margin(
       top: 0
@@ -23,7 +23,7 @@ ready = ->
       left: 25
       right: 0
     ).color([$orange, "#cf6d51"])
-    
+
     #'#618fb0', '#61b082'
     chart.legend.margin top: 3
     chart.yAxis.showMaxMin(false).tickFormat d3.format(",.f")
@@ -42,10 +42,10 @@ ready = ->
 
   return unless window.sparklines
   # Sparklines can also take their values from the first argument
-  #     passed to the sparkline() function 
+  #     passed to the sparkline() function
   randomValue = ->
     Math.floor Math.random() * 40
-  
+
   # function drawSparkLines(){
   #     options.lineColor = $colors;
   #     options.fillColor = 'rgba(86, 188, 118, 0.1)';
@@ -63,12 +63,12 @@ ready = ->
   #     options.fillColor = 'rgba(212, 212, 212, 0.1)';
   #     $('#internal-trend').sparkline(values[4], options );
   # }
-  
+
   # $(window).resize(function(e) {
   #     clearTimeout(sparkResize);
   #     sparkResize = setTimeout(drawSparkLines, 200);
   # });
-  
+
   # Notification link click handler.
   # JUST FOR DEMO.
   # Can be removed.
@@ -94,27 +94,31 @@ ready = ->
   values = sparklines
   colors =
     DOGE: "orange"
-    EAC: "green"
+    JNY: "orange"
     RPC: "red"
-    LOT: "orange"
-    SBC: "red"
-    42: "grey"
+    RUBY: "red"
     DGB: "blue"
     KDC: "blue"
-    LTC: "grey"
-    LEAF: "green"
+    SPN: "grey"
+    STP: "grey"
+    WC: "grey"
+    MUN: "green"
+    POT: "green"
+    DEF: "green"
 
   fillColors =
     DOGE: "rgba(234, 200, 94, 0.1)"
-    EAC: "rgba(86, 188, 118, 0.1)"
+    JNY: "rgba(234, 200, 94, 0.1)"
     RPC: "rgba(229, 96, 59, 0.1)"
-    LOT: "rgba(234, 200, 94, 0.1)"
-    SBC: "rgba(229, 96, 59, 0.1)"
-    42: "rgba(212, 212, 212, 0.1)"
+    RUBY: "rgba(229, 96, 59, 0.1)"
     DGB: "rgba(106, 141, 167, 0.1)"
     KDC: "rgba(106, 141, 167, 0.1)"
-    LTC: "rgba(212, 212, 212, 0.1)"
-    LEAF: "rgba(86, 188, 118, 0.1)"
+    SPN: "rgba(212, 212, 212, 0.1)"
+    STP: "rgba(212, 212, 212, 0.1)"
+    WC: "rgba(212, 212, 212, 0.1)"
+    MUN: "rgba(86, 188, 118, 0.1)"
+    POT: "rgba(86, 188, 118, 0.1)"
+    DEF: "rgba(86, 188, 118, 0.1)"
 
   sparkResize = undefined
   i = 0
