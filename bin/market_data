@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+
+require_relative "../config/initializers/settings"
+
+require 'rethinkdb'
+require 'open-uri'
+
+module MarketData
+  extend RethinkDB::Shortcuts
+
+  def self.run
+    r.connect(host: Settings::RETHINK, port: 28015).repl
+    data = JSON.parse(open(Settings::API + Settings::STATUS_PATH).read)
+
+    r.db('chunky').table('historical').insert(data.merge(created_at: Time.now)).run
+  end
+end
+
+MarketData.run
