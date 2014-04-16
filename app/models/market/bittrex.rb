@@ -42,11 +42,6 @@ class Market::Bittrex < Market
       self
     end
 
-    def hello
-      binding.pry
-      to_json
-    end
-
     # def as_json(options = {})
     #   super(except: [:pair_data])
     # end
