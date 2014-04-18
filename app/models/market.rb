@@ -5,9 +5,9 @@ class Market
   attr_accessor :name, :pairs
 
   def initialize
-    raise if self.name == 'Market'
+    raise if self.class.name == 'Market'
 
-    @name = self.name.underscore
+    @name = self.class.name.demodulize.underscore
     @response = Typhoeus.get_json_as_object(url)
 
     super
@@ -23,7 +23,7 @@ class Market
   end
 
   def self.by_name(name)
-    name.camelize.constantize.new.convert
+    Market.const_get(name.to_s.camelize).new
   end
 
   def convert

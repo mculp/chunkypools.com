@@ -22,7 +22,11 @@ class MarketTest < ActiveSupport::TestCase
 
     first_pair = parsed_json['pairs'].first
 
-    assert first_pair['name'] =~ /BTC/
+    assert first_pair['quote'].present?
+    assert first_pair['base'].present?
+
+    assert "#{first_pair['quote']}/#{first_pair['base']}", first_pair['name']
+
     assert first_pair.has_key? 'volume'
     assert first_pair.has_key? 'high'
     assert first_pair.has_key? 'low'
