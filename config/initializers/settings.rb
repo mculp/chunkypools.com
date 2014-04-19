@@ -1,5 +1,7 @@
 module Settings
   API = 'http://localhost/'
-  STATUS_PATH = 'api/pool/status'
   RETHINK = 'localhost'
+
+  STATUS_PATH = 'api/pool/status'
+  MARKETS_PATH = 'api/markets'
 end

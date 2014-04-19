@@ -23,4 +23,14 @@ class ApiController < ApplicationController
     @exchange_rates = CoinPrice.yesterday_exchange_rates
     render json: @exchange_rates.to_json
   end
+
+  def all_market_data
+    @market_data = Market.all
+    render json: @market_data.to_json
+  end
+
+  def market_data
+    @market_data = Market.by_name(params[:market_name])
+    render json: @market_data.to_json
+  end
 end
