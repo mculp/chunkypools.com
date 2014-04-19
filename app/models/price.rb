@@ -1,4 +1,7 @@
 class Price
+  include Concerns::Rethink
+  include Concerns::CachedBlock
+
   attr_accessor :coin, :parsed_body
 
   def initialize(coin)
@@ -11,11 +14,13 @@ class Price
   end
 
   def self.determine_source(coin)
-    case coin.price_source
-    when 'mintpal'
-      Source::Mintpal
-    else
-      Source::Cryptocoincharts
+    sources = coin.price_sources
+
+  end
+
+  def self.current(coin)
+    cached("chunky.markets.last") do
+      r.db('chunky').table('markets').order_by('index' => r.desc('created_at')).limit(96).run(rethink).to_a
     end
   end
 
