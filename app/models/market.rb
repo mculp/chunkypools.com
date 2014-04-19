@@ -27,7 +27,7 @@ class Market
       files = Dir[path]
 
       # pair.rb is the module, the rest are markets
-      files.reject { |file| file =~ /pair\.rb$/ }
+      files.reject! { |file| file =~ /pair\.rb$/ }
 
       files.map { |file| File.basename(file, ".rb") }
     end

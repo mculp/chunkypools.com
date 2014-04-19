@@ -30,6 +30,7 @@ class MarketTest < ActiveSupport::TestCase
     assert first_pair.has_key? 'high'
     assert first_pair.has_key? 'low'
     assert first_pair['last'].present?
+    assert String === first_pair['last']
   end
 
   test "quote can have a dash in it" do
@@ -40,5 +41,33 @@ class MarketTest < ActiveSupport::TestCase
 
   test "it correctly reads all markets" do
     assert_send [Market.market_list, :include?, 'bittrex']
+    assert_send [Market.market_list, :include?, 'mintpal']
+    assert_send [Market.market_list, :include?, 'cryptocoincharts']
+
+    assert Market.market_list.none? { |item| item == 'pair' }
+  end
+
+  test "it correctly serializes all markets" do
+    @all = Market.all
+
+    bittrex = @all.find { |a| a.name == 'bittrex' }
+    mintpal = @all.find { |a| a.name == 'mintpal' }
+    cryptocoincharts = @all.find { |a| a.name == 'cryptocoincharts' }
+
+    assert_not_nil bittrex
+    assert_not_nil mintpal
+    assert_not_nil cryptocoincharts
+
+    assert bittrex.pairs.present?
+    assert mintpal.pairs.present?
+    assert cryptocoincharts.pairs.present?
+
+    assert bittrex.pairs.first.name =~ /^.+\/BTC$/
+    assert mintpal.pairs.first.name =~ /^.+\/BTC$/
+    assert cryptocoincharts.pairs.first.name =~ /^.+\/BTC$/
+
+    assert bittrex.pairs.first.last.present?
+    assert mintpal.pairs.first.last.present?
+    assert cryptocoincharts.pairs.first.last.present?
   end
 end

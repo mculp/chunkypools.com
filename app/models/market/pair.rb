@@ -20,7 +20,7 @@ module Market::Pair
 
   def run
     format.each_pair do |key, market_key|
-      instance_variable_set("@#{key}", pair_data[market_key])
+      instance_variable_set("@#{key}", pair_data[market_key].to_s)
     end
 
     self
