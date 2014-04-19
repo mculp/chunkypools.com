@@ -9,8 +9,8 @@ ChunkyPools::Application.routes.draw do
   get '/api/coin/exchange_rates/current' => 'api#current_exchange_rates'
   get '/api/coin/exchange_rates/yesterday' => 'api#yesterday_exchange_rates'
   get '/api/coin/exchange_rates/yesterday' => 'api#yesterday_exchange_rates'
-  get '/api/market' => 'api#all_market_data'
-  get '/api/market/:market_name' => 'api#market_data'
+  get '/api/markets' => 'api#all_market_data'
+  get '/api/markets/:market_name' => 'api#market_data'
 
   get '/account' => 'account#show'
   get '/faq' => 'pages#faq'

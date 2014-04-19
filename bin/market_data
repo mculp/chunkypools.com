@@ -11,9 +11,9 @@ module MarketData
 
   def self.run
     r.connect(host: Settings::RETHINK, port: 28015).repl
-    data = JSON.parse(open(Settings::API + Settings::STATUS_PATH).read)
+    data = JSON.parse(open(Settings::API + Settings::MARKETS_PATH).read)
 
-    r.db('chunky').table('historical').insert(data.merge(created_at: Time.now)).run
+    r.db('chunky').table('markets').insert(data.merge(created_at: Time.now)).run
   end
 end
 

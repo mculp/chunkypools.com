@@ -18,9 +18,14 @@ class Market::Bittrex < Market
     end
 
     def run
+      market_name = pair_data['MarketName']
+      partitioned_market_name = market_name.partition("-")
+
+      self.base = partitioned_market_name.first
+      self.quote = partitioned_market_name.last
+      self.name = "#{quote}/#{base}"
+
       super
-
-
     end
   end
 end

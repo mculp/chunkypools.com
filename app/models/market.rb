@@ -18,14 +18,22 @@ class Market
   end
 
   def self.all
-    # Rails.root + "app/csv/names.csv"
-    Dir[File.expand_path("./market", __FILE__)].each { |file| by_name(file.split(".rb").first) }
+    market_list.map { |file| by_name(file.split(".rb").first) }
+  end
+
+  def self.market_list
+    @market_list ||= begin
+      path = File.expand_path("../market/*", __FILE__)
+      files = Dir[path]
+
+      # pair.rb is the module, the rest are markets
+      files.reject { |file| file =~ /pair\.rb$/ }
+
+      files.map { |file| File.basename(file, ".rb") }
+    end
   end
 
   def self.by_name(name)
     Market.const_get(name.to_s.camelize).new
-  end
-
-  def convert
   end
 end
