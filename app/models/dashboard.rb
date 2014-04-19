@@ -1,5 +1,5 @@
 class Dashboard
-  include RethinkDB::Shortcuts
+  extend RethinkDB::Shortcuts
   extend RethinkConnection
 
   def self.display_data
