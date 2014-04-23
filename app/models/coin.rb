@@ -14,6 +14,7 @@ class Coin
 
   # TODO: move this to config file
   CONTAINER = [
+   Coin.new(name: 'Bitstar', code: 'bits', reward: 124, port: 3341),
    Coin.new(name: 'Defcoin', code: 'def', reward: 50, port: 3349),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340),
    Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 22550, type: 'p2pool'),

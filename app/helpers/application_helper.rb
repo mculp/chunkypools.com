@@ -24,6 +24,7 @@ module ApplicationHelper
     'WC' =>   { pill_color: 'default',   image: 'whitecoin120',     full_name: 'whitecoin' },
     'KSC' =>   { pill_color: 'warning',   image: 'kashmircoin120',     full_name: 'kashmircoin' },
     'KARM' =>   { pill_color: 'primary',   image: 'karmacoin120',     full_name: 'karmacoin' },
+    'BITS' =>   { pill_color: 'warning',   image: 'bitstar120',     full_name: 'bitstar' },
     'MUN' =>   { pill_color: 'success',   image: 'muniti120',     full_name: 'muniti' }
   }
 
