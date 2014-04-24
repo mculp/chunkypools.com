@@ -33,7 +33,11 @@ class Price
     end
 
     current_prices = relevant_markets.map do |market|
-      relevant_pair = market.pairs.find { |pair| pair.name == "#{coin.code.upcase}/BTC" }
+      relevant_pair = market.pairs.find do |pair|
+        quote = coin.public_send(coin.source_attribute) || coin.code.upcase
+        pair.name == "#{quote}/BTC"
+      end
+
       relevant_pair && relevant_pair.last.to_f
     end
 
