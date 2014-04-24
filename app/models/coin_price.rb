@@ -1,7 +1,7 @@
 class CoinPrice
   def self.current_exchange_rates
     Coin.active.map do |coin|
-      { coin: coin, current_price: Price.current(coin) }
+      { coin: coin, current_price: Price.current(coin)[:exchange_rate] }
     end
   end
 

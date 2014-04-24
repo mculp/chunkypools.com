@@ -16,7 +16,7 @@ class Price
 
   def self.current(coin)
     cached("chunky.price.current.#{coin.code}") do
-      max_exchange_rate_from_market_summary(latest_market_summary, coin)
+      { coin: coin.code, exchange_rate: max_exchange_rate_from_market_summary(latest_market_summary, coin) }
     end
   end
 
