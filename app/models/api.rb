@@ -18,12 +18,12 @@ class Api
       end
     end
 
-    class Coin < Endpoint
+    class Pool < Endpoint
       endpoint :exchange_rates
 
-      class ExchangeRates < Coin
+      class ExchangeRates < Pool
         endpoint :yesterday, :current
       end
     end
-  end  
+  end
 end
