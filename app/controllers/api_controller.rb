@@ -15,7 +15,8 @@ class ApiController < ApplicationController
   end
 
   def current_exchange_rate
-    @exchange_rate = Price.current(params[:coin])
+    coin = Coin[params[:coin]]
+    @exchange_rate = Price.current(coin)
     render json: @exchange_rate.to_json
   end
 
