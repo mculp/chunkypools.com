@@ -21,7 +21,7 @@ class Price
 
   def self.latest_market_summary
     cached("chunky.markets.last") do
-      json = r.db('chunky').table('markets').order_by('index' => r.desc('created_at')).limit(1).run(rethink).to_a
+      json = r.db('chunky').table('markets').order_by('index' => r.desc('created_at')).limit(1).run(rethink).to_a.first
       Hashie::Mash.loose(json)
     end
   end
