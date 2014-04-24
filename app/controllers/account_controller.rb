@@ -9,7 +9,7 @@ class AccountController < ApplicationController
     @coin_addresses = CoinAddress.where(account_id: @current_user_id)
     @coin_addresses.extend(CoinAddresses)
 
-    @exchange_rates = Typhoeus.get_json_as_object(Api::Endpoint::Coin::ExchangeRates.current)
+    @exchange_rates = Typhoeus.get_json_as_object(Api::Endpoint::Pool::ExchangeRates.current)
     @exchange_rates.extend(ExchangeRates)
 
     @balances = Pool.balances(@api_key)

@@ -13,7 +13,6 @@ class Price
     source.new(coin).retrieve
   end
 
-
   def self.current(coin)
     cached("chunky.price.current.#{coin.code}") do
       { coin: coin.code, exchange_rate: max_exchange_rate_from_market_summary(latest_market_summary, coin) }
@@ -23,7 +22,7 @@ class Price
   def self.latest_market_summary
     cached("chunky.markets.last") do
       json = r.db('chunky').table('markets').order_by('index' => r.desc('created_at')).limit(1).run(rethink).to_a
-      Hashie::Mash[json]
+      Hashie::Mash.loose(json)
     end
   end
 
