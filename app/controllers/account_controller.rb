@@ -4,16 +4,33 @@ class AccountController < ApplicationController
 
     redirect_to login_path and return unless @current_user_id
 
-    @api_key = Account.where(id: @current_user_id).select(:api_key).first.try(:api_key)
+    self.class.benchmark("getting api key") do
+      @api_key = Account.where(id: @current_user_id).select(:api_key).first.try(:api_key)
+    end
 
-    @coin_addresses = CoinAddress.where(account_id: @current_user_id)
-    @coin_addresses.extend(CoinAddresses)
+    self.class.benchmark("Getting coin addresses") do
+      @coin_addresses = CoinAddress.where(account_id: @current_user_id)
+    end
 
-    @exchange_rates = Typhoeus.get_json_as_object(Api::Endpoint::Pool::ExchangeRates.current)
-    @exchange_rates.extend(ExchangeRates)
+    self.class.benchmark("Extending CoinAddresses") do
+      @coin_addresses.extend(CoinAddresses)
+    end
 
-    @balances = Pool.balances(@api_key)
-    @workers = Pool.workers(@api_key)
+    self.class.benchmark("Getting exchange rates") do
+      @exchange_rates = Typhoeus.get_json_as_object(Api::Endpoint::Pool::ExchangeRates.current)
+    end
+
+    self.class.benchmark("Extending exchange rates") do
+      @exchange_rates.extend(ExchangeRates)
+    end
+
+    self.class.benchmark("Getting balances") do
+      @balances = Pool.balances(@api_key)
+    end
+
+    self.class.benchmark("Getting workers") do
+      @workers = Pool.workers(@api_key)
+    end
   end
 
   def edit
@@ -32,6 +49,10 @@ class AccountController < ApplicationController
   end
 
   def bitcoin_value
+
+  end
+
+  def instrument(&block)
 
   end
 end
