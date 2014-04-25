@@ -24,7 +24,7 @@ module DashboardHelper
   end
 
   def massage_for_sparklines
-    sparkline_source = @display_data.last(10)
+    sparkline_source = @display_data.first(10).reverse
 
     @sparklines = @pools_table.map do |pool|
       sparkline_source.map do |source|

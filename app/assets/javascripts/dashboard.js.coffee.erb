@@ -20,13 +20,13 @@ ready = ->
     chart = nv.models.lineChart().margin(
       top: 0
       bottom: 25
-      left: 25
+      left: 35
       right: 0
     ).color([$orange, "#cf6d51"])
 
     #'#618fb0', '#61b082'
     chart.legend.margin top: 3
-    chart.yAxis.showMaxMin(false).tickFormat d3.format(",.f")
+    chart.yAxis.showMaxMin(false).tickFormat d3.format(".f")
     chart.xAxis.showMaxMin(false).tickFormat (d) ->
       d3.time.format("%H:%M") new Date(d)
 
@@ -94,13 +94,13 @@ ready = ->
   values = sparklines
   colors =
     DOGE: "orange"
-    JNY: "orange"
+    BITS: "orange"
+    KSC: "orange"
     RPC: "red"
     RUBY: "red"
     DGB: "blue"
-    KDC: "blue"
+    KARM: "blue"
     SPN: "gray"
-    STP: "gray"
     WC: "gray"
     MUN: "green"
     POT: "green"
@@ -108,13 +108,13 @@ ready = ->
 
   fillColors =
     DOGE: "rgba(234, 200, 94, 0.1)"
-    JNY: "rgba(234, 200, 94, 0.1)"
+    BITS: "rgba(234, 200, 94, 0.1)"
+    KSC: "rgba(234, 200, 94, 0.1)"
     RPC: "rgba(229, 96, 59, 0.1)"
     RUBY: "rgba(229, 96, 59, 0.1)"
     DGB: "rgba(106, 141, 167, 0.1)"
-    KDC: "rgba(106, 141, 167, 0.1)"
+    KARM: "rgba(106, 141, 167, 0.1)"
     SPN: "rgba(212, 212, 212, 0.1)"
-    STP: "rgba(212, 212, 212, 0.1)"
     WC: "rgba(212, 212, 212, 0.1)"
     MUN: "rgba(86, 188, 118, 0.1)"
     POT: "rgba(86, 188, 118, 0.1)"
