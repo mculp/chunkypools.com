@@ -1,7 +1,7 @@
 <% port ||= coin.port %>
 
 <%= link_to(coin.code.downcase + "/") do %>
-  <li<%= ' id=chunkyport-box' if port == '6666' %>>
+  <li<%= ' id=chunkyport-box' if port == '6666' %><%= ' class="alert alert-danger" style="opacity: 0.7"' if coin.code.downcase == 'pot' %>>
     <%= coin_image(coin.code, alt: coin.code, class: 'pull-left img-circle') %>
     <div class="news-item-info">
       <div class="name"><%= coin.name.capitalize %></div>
