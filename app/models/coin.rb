@@ -17,7 +17,7 @@ class Coin
    Coin.new(name: 'Bitstar', code: 'bits', reward: 124, port: 3341, price_sources: ['bittrex', 'cryptocoincharts']),
    Coin.new(name: 'Defcoin', code: 'def', reward: 50, port: 3349, price_sources: []),
    Coin.new(name: 'Digibyte', code: 'dgb', reward: 8000, port: 3340, price_sources: ['mintpal']),
-   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 22550, price_sources: ['mintpal', 'bittrex'], type: 'p2pool'),
+   Coin.new(name: 'Dogecoin', code: 'doge', reward: 250000, port: 3333, price_sources: ['mintpal', 'bittrex']),
    Coin.new(name: 'Karmacoin', code: 'karm', reward: 110000, port: 3339, price_sources: ['bittrex']),
    Coin.new(name: 'Kashmircoin', code: 'ksc', reward: 0.001001, port: 3338, price_sources: ['bittrex', 'cryptocoincharts']),
    Coin.new(name: 'Muniti', code: 'mun', reward: 39, port: 1133, price_sources: ['bittrex', 'cryptocoincharts'], algorithm: 'x11'),

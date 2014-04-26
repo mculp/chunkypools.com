@@ -4,31 +4,31 @@ class AccountController < ApplicationController
 
     redirect_to login_path and return unless @current_user_id
 
-    self.class.benchmark("getting api key") do
+    benchmark("getting api key") do
       @api_key = Account.where(id: @current_user_id).select(:api_key).first.try(:api_key)
     end
 
-    self.class.benchmark("Getting coin addresses") do
+    benchmark("Getting coin addresses") do
       @coin_addresses = CoinAddress.where(account_id: @current_user_id)
     end
 
-    self.class.benchmark("Extending CoinAddresses") do
+    benchmark("Extending CoinAddresses") do
       @coin_addresses.extend(CoinAddresses)
     end
 
-    self.class.benchmark("Getting exchange rates") do
+    benchmark("Getting exchange rates") do
       @exchange_rates = Typhoeus.get_json_as_object(Api::Endpoint::Pool::ExchangeRates.current)
     end
 
-    self.class.benchmark("Extending exchange rates") do
+    benchmark("Extending exchange rates") do
       @exchange_rates.extend(ExchangeRates)
     end
 
-    self.class.benchmark("Getting balances") do
+    benchmark("Getting balances") do
       @balances = Pool.balances(@api_key)
     end
 
-    self.class.benchmark("Getting workers") do
+    benchmark("Getting workers") do
       @workers = Pool.workers(@api_key)
     end
   end
