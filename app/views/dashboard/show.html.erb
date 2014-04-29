@@ -1,27 +1,6 @@
 <% content_for(:title, 'Dashboard') %>
 <% content_for(:page, 'dashboard') %>
 
-<div class="content container">
-  <% if @alert.present? %>
-    <div class="alert alert-info col-md-10">
-      <%= raw @alert %>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="col-md-12">
-      <h2 class="page-title">Dashboard <small>Statistics and more</small></h2>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-        <section class="widget">
-          current total hash: <%= "%.2f" % @hash %> MH/s
-        </section>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% if false %>
 <% massage %>
 
 <div class="content container">
@@ -52,4 +31,3 @@ window.results = <%= @results.to_json.html_safe %>;
 window.sparklines = <%= @sparklines.to_json.html_safe %>;
 window.sparkline_order = <%= @sparkline_order.to_json.html_safe %>;
 </script>
-<% end %>
