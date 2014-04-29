@@ -1,5 +1,5 @@
 class Coin
-  attr_accessor :name, :code, :reward, :port, :active, :price_sources, :type, :algorithm, :source_attribute
+  attr_accessor :name, :code, :reward, :port, :active, :price_sources, :type, :algorithm, :source_attribute, :alert
 
   def initialize(options)
     @name = options[:name]
