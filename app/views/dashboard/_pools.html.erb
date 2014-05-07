@@ -4,7 +4,7 @@
   </header>
   <div class="body">
     <ul class="news-list">
-      <%= render 'coin', coin: Coin[@latest_display_data.multiport_coin], port: '6666' %>
+      <%= render 'coin', coin: Coin[@latest_display_data.public_send(algo).multiport_coin], port: '6666' %>
     </ul>
   </div>
 </section>
@@ -17,6 +17,9 @@
       </li>
       <li>
         <a href="#x11" data-toggle="tab">x11</a>
+      </li>
+      <li>
+        <a href="#sha256" data-toggle="tab">sha256</a>
       </li>
     </ul>
   </header>
@@ -33,6 +36,14 @@
       <h5 class="tab-header"><i class="fa fa-group"></i> x11 pools</h5>
       <ul class="news-list">
         <% Coin.x11.each do |coin| %>
+          <%= render 'coin', coin: coin %>
+        <% end %>
+      </ul>
+    </div>
+    <div id="sha256" class="tab-pane">
+      <h5 class="tab-header"><i class="fa fa-group"></i> sha256 pools</h5>
+      <ul class="news-list">
+        <% Coin.sha256.each do |coin| %>
           <%= render 'coin', coin: coin %>
         <% end %>
       </ul>

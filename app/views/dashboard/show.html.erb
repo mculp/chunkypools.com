@@ -3,26 +3,35 @@
 
 <% massage %>
 
-<div class="content container">
+<div class="content container content-tabs">
   <% if @alert.present? %>
     <div class="alert alert-info col-md-10">
       <%= raw @alert %>
     </div>
   <% end %>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-5">
       <h2 class="page-title">Dashboard <small>Statistics and more</small></h2>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-8">
-      <%= render 'graph' %>
-      <%= render 'sparklines' %>
-    </div>
-    <div class="col-md-4">
-      <%= render 'pools' %>
+    <div class="col-md-3" style="top: 12px">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#">scrypt</a></li>
+        <li><a href="#">x11</a></li>
+        <li><a href="#">sha256</a></li>
+      </ul>
     </div>
   </div>
+  <% [:scrypt, :x11, :sha256].each do |algo| %>
+    <div class="row" id="algo-#{algo}" class="hide">
+      <div class="col-md-8">
+        <%= render 'graph', algo: algo %>
+        <%= render 'sparklines', algo: algo %>
+      </div>
+      <div class="col-md-4">
+        <%= render 'pools', algo: algo %>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <script>

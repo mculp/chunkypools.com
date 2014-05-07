@@ -51,4 +51,8 @@ class Coin
   def self.x11
     CONTAINER.select { |c| c.active && c.algorithm == 'x11' }
   end
+
+  def self.sha256
+    CONTAINER.select { |c| c.active && c.algorithm == 'sha256' }
+  end
 end

@@ -1,3 +1,4 @@
+<% display_data = @latest_display_data.public_send(algo) %>
 <section class="widget">
   <header>
     <h4>
@@ -12,21 +13,21 @@
       <div class="row">
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="eicon-users"></i> Pool Hashrate</div>
-            <div class="value"><%= "%.0f" % @latest_display_data.hash_rate %> MH/s <i class="fa <%= arrows[0] rescue 'fa-caret-up color-green' %>"></i></div>
+            <div class="value"><%= "%.0f" % display_data.hash_rate %> MH/s <i class="fa <%= arrows[0] rescue 'fa-caret-up color-green' %>"></i></div>
         </div>
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="eicon-user"></i> Fastest Pool</div>
-            <div class="value"><%= "%.0f" % fastest_pool %> MH/s <i class="fa <%= arrows[1] rescue 'fa-caret-up color-green' %>"></i></div>
-            <div class="subvalue label label-<%= label_for(@latest_display_data.best_hash_rate) %>"><%= @latest_display_data.best_hash_rate %></div>
+            <div class="value"><%= "%.0f" % display_data.best_hash_rate_value %> MH/s <i class="fa <%= arrows[1] rescue 'fa-caret-up color-green' %>"></i></div>
+            <div class="subvalue label label-<%= Coin[display_data.best_hash_rate].label_color %>"><%= display_data.best_hash_rate %></div>
         </div>
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="fa fa-plus-square"></i> Pool Workers</div>
-            <div class="value"><%= @latest_display_data.workers %> <i class="fa <%= arrows[2] rescue 'fa-caret-up color-green' %>"></i></div>
+            <div class="value"><%= display_data.workers %> <i class="fa <%= arrows[2] rescue 'fa-caret-up color-green' %>"></i></div>
         </div>
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="fa fa-user"></i> Most Popular Pool</div>
-            <div class="value"><%= most_popular_pool %> <i class="fa <%= arrows[3] rescue 'fa-caret-up color-green' %>"></i></div>
-            <div class="subvalue label label-<%= label_for(@latest_display_data.most_workers) %>"><%= @latest_display_data.most_workers %></div>
+            <div class="value"><%= display_data.most_workers_value %> <i class="fa <%= arrows[3] rescue 'fa-caret-up color-green' %>"></i></div>
+            <div class="subvalue label label-<%= Coin[display_data.most_workers].label_color %>"><%= display_data.most_workers %></div>
         </div>
       </div>
     </div>

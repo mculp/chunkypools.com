@@ -26,26 +26,50 @@ class Pool
 
 
 
-  def self.statuses
-    pools = Coin.active_mpos.map do |coin|
-      code = coin.code
-      status(code).merge(coin: code.upcase)
+  def self.statuses(algorithms = [:scrypt, :x11, :sha256])
+    algorithms = Array(algorithms)
+
+    algorithms.inject({}) do |output, algo|
+      pools = Coin.public_send(algo).map do |coin|
+        code = coin.code
+
+        begin
+          status(code).merge(coin: code.upcase)
+        rescue Exception => e
+          Rails.logger.info e.inspect
+          next
+        end
+      end.compact
+
+      next unless pools.present?
+
+      hash_rate = pools.inject(0) { |sum, n| sum += n[:hash_rate] }
+      workers = pools.inject(0) { |sum, n| sum += n[:number_of_workers] }
+
+      best_hash = pools.max_by { |pool| pool[:hash_rate] }
+      best_hash_rate = best_hash[:coin]
+      best_hash_rate_value = best_hash[:hash_rate]
+
+      most = pools.max_by { |pool| pool[:number_of_workers] }
+      most_workers = most[:coin]
+      most_workers_value = most[:number_of_workers]
+
+      algo_hash = {
+        algo => {
+          multiport_coin: multiport_coin(algo),
+          multiport_workers: multiport_workers(algo),
+          hash_rate: hash_rate,
+          workers: workers,
+          best_hash_rate: best_hash_rate,
+          best_hash_rate_value: best_hash_rate_value,
+          most_workers: most_workers,
+          most_workers_value: most_workers_value,
+          pools: pools
+        }
+      }
+
+      output.merge(algo_hash)
     end
-
-    hash_rate = pools.inject(0) { |sum, n| sum += n[:hash_rate] }
-    workers = pools.inject(0) { |sum, n| sum += n[:number_of_workers] }
-    best_hash_rate = pools.max_by { |pool| pool[:hash_rate] }[:coin]
-    most_workers = pools.max_by { |pool| pool[:number_of_workers] }[:coin]
-
-    {
-      multiport_coin: multiport_coin,
-      multiport_workers: multiport_workers,
-      hash_rate: hash_rate,
-      workers: workers,
-      best_hash_rate: best_hash_rate,
-      most_workers: most_workers,
-      pools: pools
-    }
   end
 
   def self.balances(api_key)
@@ -81,14 +105,14 @@ class Pool
 
   private
 
-  def self.multiport_coin
-    coin_line = File.read('data/multiport_coin.txt')
+  def self.multiport_coin(algo)
+    coin_line = File.read("data/multiport_coin_#{algo}.txt")
 
     coin_line.split(',')[1].upcase
   end
 
-  def self.multiport_workers
-    File.read('data/multiport_workers.txt').to_i
+  def self.multiport_workers(algo)
+    File.read("data/multiport_workers_#{algo}.txt").to_i
   end
 
   def self.seconds_to_minutes_and_hours(seconds)
