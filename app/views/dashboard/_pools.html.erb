@@ -18,6 +18,9 @@
       <li>
         <a href="#x11" data-toggle="tab">x11</a>
       </li>
+      <li>
+        <a href="#multi" data-toggle="tab">multi</a>
+      </li>
     </ul>
   </header>
   <div class="body tab-content">
@@ -33,6 +36,14 @@
       <h5 class="tab-header"><i class="fa fa-group"></i> x11 pools</h5>
       <ul class="news-list">
         <% Coin.x11.each do |coin| %>
+          <%= render 'coin', coin: coin %>
+        <% end %>
+      </ul>
+    </div>
+    <div id="multi" class="tab-pane">
+      <h5 class="tab-header"><i class="fa fa-group"></i> multi pools</h5>
+      <ul class="news-list">
+        <% Coin.multi.each do |coin| %>
           <%= render 'coin', coin: coin %>
         <% end %>
       </ul>

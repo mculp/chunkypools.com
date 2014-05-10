@@ -8,6 +8,62 @@
     </tr>
   </thead>
   <tbody>
+      <tr>
+        <td>
+          <p><%= link_to(coin_image('wc'), 'wc') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('wc') %>">WC</span>
+          </div>
+        </td>
+        <td><span class="coin-address"><%= link_to('add/edit address', "/wc/index.php?page=account&action=edit") %></span></td>
+        <td><span class="automatic-payout-threshold"><%= link_to('update threshold', "/wc/index.php?page=account&action=edit") %></span></td>
+
+        <td>
+          <%= link_to('edit', "/wc/index.php?page=account&action=edit", class: 'btn btn-primary') %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><%= link_to(coin_image('sum'), 'sum') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('sum') %>">SUM</span>
+          </div>
+        </td>
+        <td><span class="coin-address"><%= link_to('add/edit address', "/sum/index.php?page=account&action=edit") %></span></td>
+        <td><span class="automatic-payout-threshold"><%= link_to('update threshold', "/sum/index.php?page=account&action=edit") %></span></td>
+
+        <td>
+          <%= link_to('edit', "/sum/index.php?page=account&action=edit", class: 'btn btn-primary') %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><%= link_to(coin_image('bns'), 'bns') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('bns') %>">BNS</span>
+          </div>
+        </td>
+        <td><span class="coin-address"><%= link_to('add/edit address', "/bns/index.php?page=account&action=edit") %></span></td>
+        <td><span class="automatic-payout-threshold"><%= link_to('update threshold', "/bns/index.php?page=account&action=edit") %></span></td>
+
+        <td>
+          <%= link_to('edit', "/bns/index.php?page=account&action=edit", class: 'btn btn-primary') %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><%= link_to(coin_image('uvc'), 'uvc') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('uvc') %>">UVC</span>
+          </div>
+        </td>
+        <td><span class="coin-address"><%= link_to('add/edit address', "/uvc/index.php?page=account&action=edit") %></span></td>
+        <td><span class="automatic-payout-threshold"><%= link_to('update threshold', "/uvc/index.php?page=account&action=edit") %></span></td>
+
+        <td>
+          <%= link_to('edit', "/uvc/index.php?page=account&action=edit", class: 'btn btn-primary') %>
+        </td>
+      </tr>
     <% @balances.each do |balance| %>
       <tr>
         <td>

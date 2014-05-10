@@ -9,6 +9,55 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td>
+          <p><%= link_to(coin_image('wc'), '/wc/') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('wc') %>">WC</span>
+          </div>
+      </td>
+      <td colspan="3">
+       <a href="https://chunkypools.com/wc/index.php?page=dashboard">view WC balance</a>
+      </td>
+
+        <td><%= link_to('withdraw', "/wc/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
+    </tr>
+    <tr>
+      <td>
+          <p><%= link_to(coin_image('sum'), '/sum/') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('sum') %>">SUM</span>
+          </div>
+      </td>
+      <td colspan="3">
+       <a href="https://chunkypools.com/sum/index.php?page=dashboard">view SUM balance</a>
+      </td>
+        <td><%= link_to('withdraw', "/sum/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
+    </tr>
+    <tr>
+      <td>
+          <p><%= link_to(coin_image('bns'), '/bns/') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('bns') %>">BNS</span>
+          </div>
+      </td>
+      <td colspan="3">
+       <a href="https://chunkypools.com/bns/index.php?page=dashboard">view BNS balance</a>
+      </td>
+        <td><%= link_to('withdraw', "/bns/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
+    </tr>
+    <tr>
+      <td>
+          <p><%= link_to(coin_image('uvc'), '/uvc/') %></p>
+          <div class="coin-label">
+            <span class="label label-<%= label_for('uvc') %>">UVC</span>
+          </div>
+      </td>
+      <td colspan="3">
+       <a href="https://chunkypools.com/uvc/index.php?page=dashboard">view UVC balance</a>
+      </td>
+        <td><%= link_to('withdraw', "/uvc/index.php?page=account&action=edit", class: 'btn btn-primary') %></td>
+    </tr>
     <% @balances.each do |balance| %>
       <tr>
         <td>
@@ -17,8 +66,17 @@
             <span class="label label-<%= label_for(balance[:coin]) %>"><%= balance[:coin].upcase %></span>
           </div>
         </td>
-        <td><span class="label label-success">
-          <%= balance_display(balance[:confirmed]) %></span></td>
+        <td>
+
+	  <div><span class="label label-success">
+          <%= balance_display(balance[:confirmed]) %></span></div>
+
+          <% if balance[:convertible] && balance[:convertible] > 0 %>
+          <div class="exchange-rate exchange-rate-label">CONVERTIBLE</div>
+          <div class="exchange-rate label label-info">
+          <%= content_tag(:span, balance_display(balance[:convertible])) %></div>
+          <% end %>
+        </td>
         <td><span class="label label-warning"><%= balance_display(balance[:unconfirmed]) %></span></td>
         <td>
           <div><span class="label label-info"><%= balance_display(btc_value(balance)) %></span></div>

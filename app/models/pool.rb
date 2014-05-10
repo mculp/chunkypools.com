@@ -54,7 +54,7 @@ class Pool
 
       response = balance(code, api_key) rescue next
 
-      { coin: code, confirmed: response['confirmed'], unconfirmed: response['unconfirmed'] }
+      { coin: code, confirmed: response['confirmed'], unconfirmed: response['unconfirmed'], convertible: response['convertible'] }
     end.compact
   end
 
