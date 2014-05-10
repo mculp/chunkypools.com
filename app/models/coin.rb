@@ -43,4 +43,8 @@ class Coin
   def self.sha256
     CONTAINER.select { |c| c.active && c.algorithm == 'sha256' }
   end
+
+  def self.multi
+    CONTAINER.select { |c| c.active && c.algorithm == 'multi' }
+  end
 end

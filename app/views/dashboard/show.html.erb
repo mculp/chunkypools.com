@@ -15,13 +15,15 @@
     </div>
     <div class="col-md-3" style="top: 12px">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#">scrypt</a></li>
-        <li><a href="#">x11</a></li>
-        <li><a href="#">sha256</a></li>
+        <% Coin::CATEGORIES.each do |algo| %>
+          <li<%= raw %q{ class="active"} if algo == :multi %>>
+            <a href="#"><%= algo %></a>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
-  <% [:scrypt, :x11, :sha256].each do |algo| %>
+  <% Coin::CATEGORIES.each do |algo| %>
     <div class="row" id="algo-#{algo}" class="hide">
       <div class="col-md-8">
         <%= render 'graph', algo: algo %>
@@ -35,8 +37,17 @@
 </div>
 
 <script>
-window.pool_info = <%= @latest_display_data.to_json.html_safe %>;
-window.results = <%= @results.to_json.html_safe %>;
-window.sparklines = <%= @sparklines.to_json.html_safe %>;
-window.sparkline_order = <%= @sparkline_order.to_json.html_safe %>;
+  window.pool_info = {};
+  window.results = {};
+  window.sparklines = {};
+  window.sparkline_order = {};
 </script>
+
+<% Coin::CATEGORIES.each do |algo| %>
+  <script>
+    window.pool_info['<%= algo %>'] = <%= @latest_display_data.public_send(algo).to_json.html_safe %>;
+    window.results['<%= algo %>'] = <%= @results[algo].to_json.html_safe %>;
+    window.sparklines['<%= algo %>'] = <%= @sparklines[algo].to_json.html_safe %>;
+    window.sparkline_order['<%= algo %>'] = <%= @sparkline_order[algo].to_json.html_safe %>;
+  </script>
+<% end %>

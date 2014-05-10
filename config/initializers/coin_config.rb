@@ -137,4 +137,5 @@ module CoinConfig
   ]
 
   CONTAINER = MULTIPOOL_CONTAINER + SHA256_CONTAINER + SCRYPT_CONTAINER + X11_CONTAINER
+  CATEGORIES = [:multi, :scrypt, :x11, :sha256]
 end

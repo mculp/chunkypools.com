@@ -10,6 +10,7 @@
       <svg></svg>
     </div>
     <div class="visits-info well well-sm">
+      <% if display_data %>
       <div class="row">
         <div class="col-sm-3 col-xs-6">
             <div class="key"><i class="eicon-users"></i> Pool Hashrate</div>
@@ -30,6 +31,7 @@
             <div class="subvalue label label-<%= Coin[display_data.most_workers].label_color %>"><%= display_data.most_workers %></div>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </section>
