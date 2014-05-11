@@ -12,11 +12,13 @@ module ApplicationHelper
     'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' },
     'POT'  =>  { pill_color: 'success',  image: 'potcoin120',      full_name: 'potcoin' },
     'SUN'  =>  { pill_color: 'warning',  image: 'suncoin120',      full_name: 'suncoin' },
+    'BNS'  =>  { pill_color: 'warning',  image: 'bonuscoin120',      full_name: 'bonuscoin' },
     'RON'  =>  { pill_color: 'danger',   image: 'swansoncoin120',      full_name: 'ronswansoncoin' },
     'AUR'  =>  { pill_color: 'success',  image: 'auroracoin120',   full_name: 'auroracoin' },
     'FLAP' =>  { pill_color: 'warning',  image: 'flappycoin120',   full_name: 'flappycoin' },
     'PCN' =>   { pill_color: 'primary',  image: 'procoin120',   full_name: 'procoin' },
     'RUBY' =>  { pill_color: 'danger',   image: 'rubycoin120',     full_name: 'rubycoin' },
+    'RDD' =>  { pill_color: 'danger',   image: 'reddcoin120',     full_name: 'reddcoin' },
     'SPN' =>   { pill_color: 'default',   image: 'spartancoin120',     full_name: 'spartancoin' },
     'DEF' =>   { pill_color: 'success',   image: 'defcoin120',     full_name: 'defcoin' },
     'STP' =>   { pill_color: 'default',   image: 'stoopidcoin120',     full_name: 'stoopidcoin' },
@@ -25,6 +27,8 @@ module ApplicationHelper
     'KSC' =>   { pill_color: 'warning',   image: 'kashmircoin120',     full_name: 'kashmircoin' },
     'KARM' =>   { pill_color: 'primary',   image: 'karmacoin120',     full_name: 'karmacoin' },
     'BITS' =>   { pill_color: 'warning',   image: 'bitstar120',     full_name: 'bitstar' },
+    'SUM' =>   { pill_color: 'warning',   image: 'summercoin120',     full_name: 'summercoin' },
+    'UVC' =>   { pill_color: 'warning',   image: 'universitycoin120',     full_name: 'universitycoin' },
     'MUN' =>   { pill_color: 'success',   image: 'muniti120',     full_name: 'muniti' }
   }
 
