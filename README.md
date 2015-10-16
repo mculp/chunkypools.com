@@ -1,11 +1,12 @@
 WHAT THE HELL IS THIS?
 ======================
 
-This is a hacked together project that puts a front-end that shows a dashboard for multiple running instances of MPOS, a PHP-based bitcoin / altcoin mining front-end/API.
+This is a hacked together dashboard for multiple instances of MPOS, a PHP-based bitcoin / altcoin mining front-end/API.
 
-### Why would you do that?
+THAT SOUNDS DUMB, A FRONT-END FOR A FRONT-END?
+==============================================
 
-Because chunkypools.com allowed users to mine 10+ coins, with 3 different algorithms, at one point. MPOS is a single coin front-end.
+Yeah, but not really, because chunkypools.com allowed users to mine 10+ coins on 3 different algorithms, while MPOS is (was?) a single-coin, single-algorithm front-end.
 
 HOW DO I DO THAT?
 ===============
@@ -14,6 +15,7 @@ HOW DO I DO THAT?
 - change stuff that doesn't apply to you
 - install dependencies, such as rethinkDB and rails of course
 - run this like any other rails app
+- oh yeah, [you're gonna need this too](https://github.com/mculp/chunky-mpos)
 
 WHY DIDN'T YOU MAKE THIS EASIER TO FORK AND CONFIGURE?
 ======================================================
