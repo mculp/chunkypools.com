@@ -1,6 +1,3 @@
-WHAT THE HELL IS THIS?
-======================
-
 This is a hacked together dashboard for multiple instances of MPOS, a PHP-based bitcoin / altcoin mining front-end/API.
 
 THAT SOUNDS DUMB, A FRONT-END FOR A FRONT-END?
